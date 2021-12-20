@@ -12,16 +12,6 @@ import java.util.stream.Collectors;
 public class GraphQLDataFetchers {
 
     private static List<Map<String, String>> flights = Arrays.asList(
-            //ImmutableMap.of("id", "flight1",
-            //        "flightNumber", "FR282",
-            //        "time", "18:00 - 19:00",
-            //        "sourceCity", "Dublin",
-            //        "destCity", "London",
-            //        "sourceAirport", "DUB",
-            //        "destAirport", "GTA",
-            //        "day", "Wednesday",
-            //        "price", "10",
-            //        "baggage", "normal"),
            ImmutableMap.<String, String>builder()
                     .put("id", "flight1")
                     .put("flightNumber", "FR282")
@@ -33,38 +23,41 @@ public class GraphQLDataFetchers {
                     .put("day", "Wednesday")
                     .put("price", "10")
                     .put("baggage", "normal")
-                    .build()
-        //     ImmutableMap.of("id", "flight2",
-                //     "flightNumber", "FR382",
-                //     "time", "12:00 - 13:00",
-                //     "sourceCity", "Dublin",
-                //     "destCity", "London",
-                //     "sourceAirport", "DUB",
-                //     "destAirport", "GTA",
-                //     "day", "Monday",
-                //     "price", "12",
-                //     "baggage", "normal"),
-        //     ImmutableMap.of("id", "flight3",
-        //             "flightNumber", "FR283",
-        //             "time", "22:00 - 23:00",
-        //             "sourceCity", "Dublin",
-        //             "destCity", "London",
-        //             "sourceAirport", "DUB",
-        //             "destAirport", "GTA",
-        //             "day", "Wednesday",
-        //             "price", "23",
-        //             "baggage", "normal")
+                    .build(),
+           ImmutableMap.<String, String>builder()
+                    .put("id", "flight2")
+                    .put("flightNumber", "FR382")
+                    .put("time", "12:00 - 13:00")
+                    .put("sourceCity", "Dublin")
+                    .put("destCity", "London")
+                    .put("sourceAirport", "DUB")
+                    .put("destAirport", "GTA")
+                    .put("day", "Monday")
+                    .put("price", "12")
+                    .put("baggage", "normal")
+                    .build(),
+           ImmutableMap.<String, String>builder()
+                    .put("id", "flight3")
+                    .put("flightNumber", "FR283")
+                    .put("time", "22:00 - 23:00")
+                    .put("sourceCity", "Dublin")
+                    .put("destCity", "London")
+                    .put("sourceAirport", "DUB")
+                    .put("destAirport", "GTA")
+                    .put("day", "Wednesday")
+                    .put("price", "23")
+                    .put("baggage", "normal")
+                    .build()                  
     );
 
-    public DataFetcher getFlightByDestination() {
+    public DataFetcher<List<Map<String, String>>> getFlightByDestination() {
         return dataFetchingEnvironment -> {
             String flightSrcCity = dataFetchingEnvironment.getArgument("sourceCity");
             String flightDestCity = dataFetchingEnvironment.getArgument("destCity");
             return flights
                     .stream()
                     .filter(flight -> flight.get("destCity").equals(flightDestCity) && flight.get("sourceCity").equals(flightSrcCity))
-                    .findFirst()
-                    .orElse(null);
+                    .collect(Collectors.toList());
 
         };
     }

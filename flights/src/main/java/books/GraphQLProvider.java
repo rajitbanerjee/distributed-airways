@@ -10,10 +10,15 @@ import graphql.schema.idl.TypeDefinitionRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+import graphql.schema.DataFetcher;
+
+
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import static graphql.schema.idl.TypeRuntimeWiring.newTypeWiring;
 
@@ -42,9 +47,10 @@ public class GraphQLProvider {
     }
 
     private RuntimeWiring buildWiring() {
+        Map<String, DataFetcher> dataFetchersMap = new HashMap<>();
+        dataFetchersMap.put("availableFlight", graphQLDataFetchers.getFlightByDestination());
         return RuntimeWiring.newRuntimeWiring()
-                .type(newTypeWiring("Query")
-                        .dataFetcher("availableFlight", graphQLDataFetchers.getFlightByDestination()))
+                .type(newTypeWiring("Query").dataFetchers(dataFetchersMap))
                 .build();
     }
 
