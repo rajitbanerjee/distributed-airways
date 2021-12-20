@@ -1,0 +1,16 @@
+type Query {
+    availableFlight(sourceCity: String, destCity: String): Flight
+}
+
+type Flight {
+    id: ID
+    flightNumber: String
+    time: String
+    sourceCity: String
+    destCity: String
+    sourceAirport: String
+    destAirport: String
+    day: String
+    price: String
+    category: String
+}
