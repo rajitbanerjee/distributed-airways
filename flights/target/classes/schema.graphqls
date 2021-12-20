@@ -1,5 +1,5 @@
 type Query {
-    availableFlight(sourceCity: String, destCity: String): Flight
+    availableFlight(sourceCity: String, destCity: String): [Flight]
 }
 
 type Flight {
