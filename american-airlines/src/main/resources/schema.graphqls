@@ -1,0 +1,9 @@
+type Flight {
+    id: ID!,
+    flightNumber: String
+}
+
+type Query {
+    allFlights: [Flight]
+    flightById(id: ID): Flight
+}
