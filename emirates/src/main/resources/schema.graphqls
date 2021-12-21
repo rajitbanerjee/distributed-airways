@@ -1,0 +1,16 @@
+type Flight {
+    id: ID!
+    airline: String
+    flightNumber: [String]
+    time: [String]
+    sourceCity: String
+    destinationCity: String
+    sourceAirport: String
+    destinationAirport: String
+    dayOfWeek: [String]
+    price: [Float]
+}
+
+type Query {
+    flights(dayOfWeek: String, sourceCity: String, destinationCity: String): [Flight]
+}
