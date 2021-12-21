@@ -14,6 +14,10 @@ import java.util.List;
 public class Query implements GraphQLQueryResolver {
     private final FlightService flightService;
 
+    public List<Flight> flights(String dayOfWeek, String sourceCity, String destinationCity) {
+        return flightService.getFlights(dayOfWeek, sourceCity, destinationCity);
+    }
+
     public List<Flight> allFlights() {
         return flightService.getFlights();
     }
