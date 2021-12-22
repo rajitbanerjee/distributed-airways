@@ -11,6 +11,7 @@
         <!-- <module>cathay-pacific</module> -->
         <module>emirates</module>
         <!-- <module>ryanair</module> -->
+        <module>broker</module>
         <!-- <module>client</module> -->
     </modules>
 </project>

@@ -1,0 +1,19 @@
+POST http://localhost:8083/graphql
+Content-Type: application/graphql
+
+{
+  flights(dayOfWeek: "Monday", sourceCity: "Dublin", destinationCity: "Melbourne") { 
+    id 
+    airline
+    flightNumber
+    time
+    sourceCity
+    destinationCity
+    sourceAirport
+    destinationAirport
+    dayOfWeek
+    price
+    category
+  }
+}
+

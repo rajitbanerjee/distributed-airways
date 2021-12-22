@@ -9,7 +9,8 @@
         "sourceAirport": "DUB",
         "destinationAirport": "CCU",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "price": ["500"]
+        "price": [500.00],
+        "category": ["Economy", "Business", "First"]
     },
     {
         "id": "flight2",
@@ -21,6 +22,7 @@
         "sourceAirport": "DUB",
         "destinationAirport": "MEL",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "price": ["1500"]
+        "price": [1500.00],
+        "category": ["Economy", "Business", "First"]
     }
 ]
