@@ -13,5 +13,5 @@ type Flight {
 }
 
 type Query {
-    flights(dayOfWeek: String, sourceCity: String, destinationCity: String): [Flight]
+    flights(date: String, sourceCity: String, destinationCity: String): [Flight]
 }
