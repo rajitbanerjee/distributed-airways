@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateFormatter {
-
     private static final String FULL_DAY_NAME = "EEEE";
 
     public static String dateToDayOfWeek(String yyyyMMdd) throws ParseException {

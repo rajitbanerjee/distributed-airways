@@ -2,6 +2,7 @@ package com.distributed.airways.service;
 
 import com.distributed.airways.model.EmiratesFlight;
 import com.distributed.airways.repository.FlightRepository;
+import com.distributed.airways.utils.DateFormatter;
 import graphql.schema.DataFetcher;
 import java.io.IOException;
 import java.util.List;
@@ -18,9 +19,10 @@ public class EmiratesService {
     public DataFetcher<List<EmiratesFlight>> getFlightsDataFetcher(
             FlightRepository flightRepository) throws IOException {
         return dataFetchingEnvironment -> {
-            String dayOfWeek = dataFetchingEnvironment.getArgument("dayOfWeek");
+            String date = dataFetchingEnvironment.getArgument("date");
             String sourceCity = dataFetchingEnvironment.getArgument("sourceCity");
             String destinationCity = dataFetchingEnvironment.getArgument("destinationCity");
+            String dayOfWeek = DateFormatter.dateToDayOfWeek(date);
 
             flights = flightRepository.findFlights(dayOfWeek, sourceCity, destinationCity);
             updateTicketPrices();
