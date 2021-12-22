@@ -1,0 +1,17 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.distributed.airways</groupId>
+    <artifactId>distributed-airways</artifactId>
+    <version>0.0.1</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>core</module>
+        <!-- <module>american-airlines</module> -->
+        <!-- <module>cathay-pacific</module> -->
+        <module>emirates</module>
+        <!-- <module>ryanair</module> -->
+        <!-- <module>broker</module> -->
+        <!-- <module>client</module> -->
+    </modules>
+</project>
