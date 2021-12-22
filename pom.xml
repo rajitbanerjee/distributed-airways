@@ -6,7 +6,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <!-- <module>core</module> -->
+        <module>core</module>
         <!-- <module>american-airlines</module> -->
         <!-- <module>cathay-pacific</module> -->
         <module>emirates</module>
