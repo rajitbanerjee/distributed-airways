@@ -9,6 +9,7 @@ type Flight {
     destinationAirport: String
     dayOfWeek: [String]
     price: [Float]
+    category: [String]
 }
 
 type Query {
