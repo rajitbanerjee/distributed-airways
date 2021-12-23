@@ -3,10 +3,9 @@ package com.distributed.airways.resolver;
 import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.distributed.airways.entity.Flight;
 import com.distributed.airways.service.FlightService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 @RequiredArgsConstructor
