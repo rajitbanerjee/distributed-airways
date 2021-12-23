@@ -2,7 +2,7 @@ package com.distributed.airways.service;
 
 import com.distributed.airways.entity.Flight;
 import com.distributed.airways.repository.FlightRepository;
-import com.distributed.airways.util.FileIO;
+import com.distributed.airways.utils.FileIO;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

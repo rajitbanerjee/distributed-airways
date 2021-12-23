@@ -70,6 +70,25 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${project.parent.version}</version>
             </plugin>
+            <!-- Consistent AOSP code formatting -->
+            <plugin>
+                <groupId>com.coveo</groupId>
+                <artifactId>fmt-maven-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <sourceDirectory>src/main/java</sourceDirectory>
+                    <testSourceDirectory>src/test/java</testSourceDirectory>
+                    <style>aosp</style>
+                </configuration>
+                <executions>
+                    <execution>
+                        <?m2e execute onConfiguration?>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
