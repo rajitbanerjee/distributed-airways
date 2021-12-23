@@ -1,0 +1,28 @@
+[
+    {
+        "id": "flight1",
+        "airline": "Ryan Air",
+        "flightNumber": ["FR288"],
+        "time": ["18:50", "20:10"],
+        "sourceCity": "Dublin",
+        "destinationCity": "London",
+        "sourceAirport": "DUB",
+        "destinationAirport": "STN",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "price": [20.00],
+        "category": ["Value", "Regular", "Plus"]
+    },
+    {
+        "id": "flight2",
+        "airline": "Ryan Air",
+        "flightNumber": ["FR188"],
+        "time": ["19:35", "21:05"],
+        "sourceCity": "Dublin",
+        "destinationCity": "London",
+        "sourceAirport": "DUB",
+        "destinationAirport": "LGW",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "price": [25.00],
+        "category": ["Value", "Regular", "Plus"]
+    }
+]
