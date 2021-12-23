@@ -12,10 +12,55 @@
 - See `emirates/src/main/resources/flights.http` for sample client side request to emirates graphql server.
 
 ### American Airlines
-#### Run Redis
+#### Run Redis for local testing
 
 ```bash
 docker run --name redis -p 6379:6379 redis:6.2-alpine 
+```
+
+#### Sample query
+Request
+```graphql
+{
+  flights(date: "2021-12-24", sourceCity:"Dublin", destinationCity:"London") {
+    id,
+    time,
+    dayOfWeek,
+    price
+  }
+}
+```
+Response
+```json
+{
+  "data": {
+    "flights": [
+      {
+        "id": "1",
+        "time": [
+          "08:00",
+          "09:00"
+        ],
+        "dayOfWeek": [
+          "Monday",
+          "Friday"
+        ],
+        "category": [
+          "None",
+          "Silver",
+          "Gold",
+          "Platinum"
+        ],
+        "price": [
+          100,
+          90,
+          80,
+          70
+        ]
+      }
+    ]
+  }
+}
 ```
 
 ## Team
