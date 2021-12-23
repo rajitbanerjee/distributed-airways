@@ -1,0 +1,7 @@
+com/distributed/airways/FlightsApplication.class
+com/distributed/airways/input/CreateFlightInput.class
+com/distributed/airways/service/CathayPacific.class
+com/distributed/airways/repository/FlightRepository.class
+com/distributed/airways/resolver/FlightMutator.class
+com/distributed/airways/resolver/FlightQuery.class
+com/distributed/airways/model/Flight.class
