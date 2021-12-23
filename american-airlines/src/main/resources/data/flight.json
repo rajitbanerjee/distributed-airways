@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "airline": "American Airlines",
+    "flightNumber": [
+      "AA0011"
+    ],
+    "time": [
+      "08:00",
+      "09:00"
+    ],
+    "sourceCity": "Dublin",
+    "destinationCity": "London",
+    "sourceAirport": "DUB",
+    "destinationAirport": "LHR",
+    "dayOfWeek": [
+      "Monday",
+      "Friday"
+    ],
+    "basePrice": 100.0
+  },
+  {
+    "id": "2",
+    "airline": "American Airlines",
+    "flightNumber": [
+      "AA0012"
+    ],
+    "time": [
+      "09:00",
+      "10:00"
+    ],
+    "sourceCity": "Dublin",
+    "destinationCity": "London",
+    "sourceAirport": "DUB",
+    "destinationAirport": "LHR",
+    "dayOfWeek": [
+      "Monday",
+      "Thursday"
+    ],
+    "basePrice": 200.0
+  },
+  {
+    "id": "3",
+    "airline": "American Airlines",
+    "flightNumber": [
+      "AA0013"
+    ],
+    "time": [
+      "08:00",
+      "11:00"
+    ],
+    "sourceCity": "London",
+    "destinationCity": "Madrid",
+    "sourceAirport": "LHR",
+    "destinationAirport": "MAD",
+    "dayOfWeek": [
+      "Tuesday",
+      "Friday"
+    ],
+    "basePrice": 300.0
+  }
+]
