@@ -22,7 +22,7 @@ docker run --name redis -p 6379:6379 redis:6.2-alpine
 Request
 ```graphql
 {
-  flights(date: "12-11-1999", sourceCity:"Dublin", destinationCity:"London") {
+  flights(date: "2021-12-24", sourceCity:"Dublin", destinationCity:"London") {
     id,
     time,
     dayOfWeek,
