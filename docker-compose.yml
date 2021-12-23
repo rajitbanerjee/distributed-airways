@@ -4,13 +4,18 @@ services:
     image: mongo:latest
     container_name: mongodb
     ports:
-      - 27017:27017
+      - "27017:27017"
+  redis:
+    image: redis:6.2-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
 
   emirates:
     build: emirates
     container_name: emirates
     ports:
-      - 8083:8083
+      - "8083:8083"
     environment:
       - SERVER_PORT=8083
       - DATABASE_NAME=emirates_flights
@@ -18,4 +23,15 @@ services:
       - DATABASE_PORT=27017
     depends_on:
       - mongodb
+  american-airlines:
+    build: american-airlines
+    container_name: american-airlines
+    ports:
+      - "8081:8081"
+    environment:
+      - SERVER_PORT=8081
+      - DATABASE_HOST=redis
+      - DATABASE_PORT=6379
+    depends_on:
+      - redis
 
