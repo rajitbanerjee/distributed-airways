@@ -45,15 +45,10 @@
 			</exclusions>
 		</dependency>
 
-		<!-- Cassandra (database) -->
+		<!-- MongoDB (database) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-cassandra</artifactId>
-		</dependency>
-		<dependency>
-    		<groupId>com.datastax.oss</groupId>
-    		<artifactId>java-driver-core</artifactId>
-    		<version>4.11.0</version>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 
 		<!-- jsoniter (JSON parser) -->

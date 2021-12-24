@@ -1,13 +1,12 @@
 package com.distributed.airways.repository;
 
-import com.distributed.airways.model.FlightKey;
 import com.distributed.airways.model.RyanAirFlight;
 import java.util.List;
-import org.springframework.data.cassandra.repository.CassandraRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
-@Repository
-public interface FlightRepository extends CassandraRepository<RyanAirFlight, FlightKey> {
-    List<RyanAirFlight> findbyKeySourceCityAndDestinationCity(
-            final String dayOfWeek, final String sourceCity, final String destinationCity);
+public interface FlightRepository extends MongoRepository<RyanAirFlight, String> {
+
+    @Query("{$and: [{dayOfWeek: '?0'}, {sourceCity: '?1'}, {destinationCity: '?2'}]}")
+    List<RyanAirFlight> findFlights(String dayOfWeek, String sourceCity, String destinationCity);
 }

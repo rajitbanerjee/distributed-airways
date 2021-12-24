@@ -24,9 +24,7 @@ public class RyanAirService {
             String destinationCity = dataFetchingEnvironment.getArgument("destinationCity");
             String dayOfWeek = DateFormatter.dateToDayOfWeek(date);
 
-            flights =
-                    flightRepository.findbyKeySourceCityAndDestinationCity(
-                            dayOfWeek, sourceCity, destinationCity);
+            flights = flightRepository.findFlights(dayOfWeek, sourceCity, destinationCity);
             updateTicketPrices();
             return flights;
         };
