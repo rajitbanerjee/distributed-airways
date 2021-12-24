@@ -10,7 +10,7 @@
         <module>american-airlines</module>
         <!-- <module>cathay-pacific</module> -->
         <module>emirates</module>
-        <!-- <module>ryanair</module> -->
+        <module>ryan-air</module>
         <!-- <module>broker</module> -->
         <!-- <module>client</module> -->
     </modules>

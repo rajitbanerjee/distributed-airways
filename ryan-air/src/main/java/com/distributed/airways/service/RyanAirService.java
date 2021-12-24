@@ -16,15 +16,17 @@ public class RyanAirService {
     private static final int REGULAR_PREMIUM = 5;
     private static final int PLUS_PREMIUM = 8;
 
-    public DataFetcher<List<EmiratesFlight>> getFlightsDataFetcher(
-            FlightRepository flightRepository) throws IOException {
+    public DataFetcher<List<RyanAirFlight>> getFlightsDataFetcher(FlightRepository flightRepository)
+            throws IOException {
         return dataFetchingEnvironment -> {
             String date = dataFetchingEnvironment.getArgument("date");
             String sourceCity = dataFetchingEnvironment.getArgument("sourceCity");
             String destinationCity = dataFetchingEnvironment.getArgument("destinationCity");
             String dayOfWeek = DateFormatter.dateToDayOfWeek(date);
 
-            flights = flightRepository.findFlights(dayOfWeek, sourceCity, destinationCity);
+            flights =
+                    flightRepository.findbyKeySourceCityAndDestinationCity(
+                            dayOfWeek, sourceCity, destinationCity);
             updateTicketPrices();
             return flights;
         };
@@ -38,7 +40,7 @@ public class RyanAirService {
     }
 
     private void applyTicketClassPremiums() {
-        for (EmiratesFlight flight : flights) {
+        for (RyanAirFlight flight : flights) {
             List<Double> prices = flight.getPrice();
             Double valuePrice = prices.get(0);
 

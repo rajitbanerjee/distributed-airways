@@ -48,8 +48,7 @@ public class GraphQLProvider {
             URL url = Resources.getResource(JSON);
             String jsonString = Resources.toString(url, Charsets.UTF_8);
             flights =
-                    JsonIterator.deserialize(
-                            jsonString, new TypeLiteral<List<RyanAirFlight>>() {});
+                    JsonIterator.deserialize(jsonString, new TypeLiteral<List<RyanAirFlight>>() {});
             flightRepository.deleteAll();
             flightRepository.saveAll(flights);
         } catch (IOException e) {

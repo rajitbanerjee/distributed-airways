@@ -1,37 +1,53 @@
 version: "3"
 services:
-  mongodb:
-    image: mongo:latest
-    container_name: mongodb
+#  mongodb:
+#    image: mongo:latest
+#    container_name: mongodb
+#    ports:
+#      - "27017:27017"
+#  redis:
+#    image: redis:6.2-alpine
+#    container_name: redis
+#    ports:
+#      - "6379:6379"
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra
     ports:
-      - "27017:27017"
-  redis:
-    image: redis:6.2-alpine
-    container_name: redis
-    ports:
-      - "6379:6379"
+      - "9042:9042"
 
-  emirates:
-    build: emirates
-    container_name: emirates
+#  emirates:
+#    build: emirates
+#    container_name: emirates
+#    ports:
+#      - "8083:8083"
+#    environment:
+#      - SERVER_PORT=8083
+#      - DATABASE_NAME=emirates_flights
+#      - DATABASE_HOST=mongodb
+#      - DATABASE_PORT=27017
+#    depends_on:
+#      - mongodb
+#  american-airlines:
+#    build: american-airlines
+#    container_name: american-airlines
+#    ports:
+#      - "8081:8081"
+#    environment:
+#      - SERVER_PORT=8081
+#      - DATABASE_HOST=redis
+#      - DATABASE_PORT=6379
+#    depends_on:
+#      - redis
+  ryan-air:
+    build: ryan-air
+    container_name: ryan-air
     ports:
-      - "8083:8083"
+      - "8082:8082"
     environment:
-      - SERVER_PORT=8083
-      - DATABASE_NAME=emirates_flights
-      - DATABASE_HOST=mongodb
-      - DATABASE_PORT=27017
+      - SERVER_PORT=8082
+      - DATABASE_HOST=cassandra
+      - DATABASE_PORT=9042
     depends_on:
-      - mongodb
-  american-airlines:
-    build: american-airlines
-    container_name: american-airlines
-    ports:
-      - "8081:8081"
-    environment:
-      - SERVER_PORT=8081
-      - DATABASE_HOST=redis
-      - DATABASE_PORT=6379
-    depends_on:
-      - redis
+      - cassandra
 
