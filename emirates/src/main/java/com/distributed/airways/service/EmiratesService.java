@@ -8,10 +8,11 @@ import graphql.schema.DataFetcher;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class EmiratesService {
+
     private List<EmiratesFlight> flights;
     private static final Map<String, Integer> TICKET_CLASS_PREMIUMS =
             ImmutableMap.of("Economy", 1, "Business", 5, "First", 8);

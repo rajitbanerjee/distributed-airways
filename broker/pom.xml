@@ -44,13 +44,6 @@
             </exclusions>
         </dependency>
 
-        <!-- jsoniter (JSON parser) -->
-        <dependency>
-            <groupId>com.jsoniter</groupId>
-            <artifactId>jsoniter</artifactId>
-            <version>0.9.19</version>
-        </dependency>
-
         <!-- GraphQL -->
         <dependency>
             <groupId>com.graphql-java</groupId>

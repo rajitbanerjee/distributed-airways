@@ -1,0 +1,14 @@
+POST http://localhost:8080/graphql
+Content-Type: application/json
+
+# IMP. Query argument is yyyy-MM-dd date, but response is dayOfWeek
+{
+  "query": "query Flights ($date: String, $sourceCity: String, $destinationCity: String) { flights (date: $date, sourceCity: $sourceCity, destinationCity: $destinationCity) { id airline price }}",
+  "variables": {
+    "date": "2021-12-22", 
+    "sourceCity": "Dublin", 
+    "destinationCity": "Melbourne"
+  }
+}
+
+

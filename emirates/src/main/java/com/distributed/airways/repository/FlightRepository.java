@@ -4,7 +4,9 @@ import com.distributed.airways.model.EmiratesFlight;
 import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface FlightRepository extends MongoRepository<EmiratesFlight, String> {
 
     @Query("{$and: [{dayOfWeek: '?0'}, {sourceCity: '?1'}, {destinationCity: '?2'}]}")
