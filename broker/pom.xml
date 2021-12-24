@@ -10,7 +10,7 @@
         <!-- lookup parent from repository -->
     </parent>
     <groupId>com.distributed.airways</groupId>
-    <artifactId>emirates</artifactId>
+    <artifactId>broker</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
@@ -42,12 +42,6 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-
-        <!-- MongoDB (database) -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
 
         <!-- jsoniter (JSON parser) -->
