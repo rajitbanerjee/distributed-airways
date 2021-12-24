@@ -1,15 +1,13 @@
 package com.distributed.airways.resolver;
 
-
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.distributed.airways.entity.Flight;
 import com.distributed.airways.service.FlightService;
 import com.distributed.airways.utils.DateFormatter;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
-
 import java.text.ParseException;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor

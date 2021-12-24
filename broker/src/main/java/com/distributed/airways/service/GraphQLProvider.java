@@ -2,11 +2,8 @@ package com.distributed.airways.service;
 
 import static graphql.schema.idl.TypeRuntimeWiring.newTypeWiring;
 
-import com.distributed.airways.model.EmiratesFlight;
-import com.distributed.airways.repository.FlightRepository;
+import com.distributed.airways.model.Flight;
 import com.distributed.airways.utils.FileIO;
-import com.jsoniter.JsonIterator;
-import com.jsoniter.spi.TypeLiteral;
 import graphql.GraphQL;
 import graphql.schema.DataFetcher;
 import graphql.schema.GraphQLSchema;
@@ -24,30 +21,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class GraphQLProvider {
 
-    @Autowired EmiratesService service;
-    @Autowired FlightRepository flightRepository;
+    @Autowired BrokerService service;
 
     private GraphQL graphQL;
-    private List<EmiratesFlight> flights;
     private static final String SCHEMA = "graphql/schema.graphqls";
-    private static final String JSON = "data/flights.json";
 
     @PostConstruct
     public void init() throws IOException {
         GraphQLSchema graphQLSchema = buildSchema(FileIO.readFileAsString(SCHEMA));
         this.graphQL = GraphQL.newGraphQL(graphQLSchema).build();
-        populateRepository();
-    }
-
-    private void populateRepository() {
-        try {
-            TypeLiteral<List<EmiratesFlight>> type = new TypeLiteral<List<EmiratesFlight>>() {};
-            flights = JsonIterator.deserialize(FileIO.readFileAsString(JSON), type);
-            flightRepository.deleteAll();
-            flightRepository.saveAll(flights);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private GraphQLSchema buildSchema(String sdl) throws IOException {
@@ -58,7 +40,7 @@ public class GraphQLProvider {
     }
 
     private RuntimeWiring buildWiring() throws IOException {
-        DataFetcher<List<EmiratesFlight>> fetcher = service.getFlightsDataFetcher(flightRepository);
+        DataFetcher<List<Flight>> fetcher = service.getFlightsDataFetcher();
         return RuntimeWiring.newRuntimeWiring()
                 .type(newTypeWiring("Query").dataFetcher("flights", fetcher))
                 .build();
