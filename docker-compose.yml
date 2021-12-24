@@ -4,57 +4,60 @@ services:
   redis:
     image: redis:6.2-alpine
     container_name: redis
-    logging:
-      driver: none
   mongodb:
     image: mongo:latest
     container_name: mongodb
-    logging:
-      driver: none
 
-  # central
+  # central services
+  eureka:
+    build: eureka
+    container_name: eureka
+    ports:
+      - "8761:8761"
+    environment:
+      - APPLICATION_NAME=eureka-service
+      - SERVER_PORT=8761
   broker:
     build: broker
     container_name: broker
-    ports: 
+    ports:
       - "8080:8080"
     environment:
+      - APPLICATION_NAME=broker-service
       - SERVER_PORT=8080
+      - eureka.client.serviceUrl.defaultZone=http://eureka:8761/eureka/
+    depends_on:
+      - eureka
 
   # airline services
   american-airlines:
     build: american-airlines
     container_name: american-airlines
-    # ports:
-    #   - "8081:8081"
     environment:
+      - APPLICATION_NAME=airline-service-american-airlines
       - SERVER_PORT=8081
       - DATABASE_HOST=redis
       - DATABASE_PORT=6379
+      - eureka.client.serviceUrl.defaultZone=http://eureka:8761/eureka/
     depends_on:
       - redis
+      - eureka
   # cathay-pacific:
   #   build: cathay-pacific
   #   container_name: cathay-pacific
-  #   ports:
-  #     - "8082:8082"
   emirates:
     build: emirates
     container_name: emirates
-    # ports:
-    #   - "8083:8083"
     environment:
+      - APPLICATION_NAME=airline-service-emirates
       - SERVER_PORT=8083
       - DATABASE_NAME=emirates_flights
       - DATABASE_HOST=mongodb
       - DATABASE_PORT=27017
+      - eureka.client.serviceUrl.defaultZone=http://eureka:8761/eureka/
     depends_on:
       - mongodb
+      - eureka
   # ryanair:
   #   build: ryanair
   #   container_name: ryanair
-  #   ports:
-  #     - "8084:8084"
-
-
-

@@ -2,21 +2,13 @@
 
 ## TEMPORARY INFO
 
-### Emirates
-- For testing, mongodb must be running in the background on default port.
-  ```
-  docker run --name mongodb -d -p 27017:27017 mongo
-  ```
-- No database connection code is required since [Spring Boot handles that](https://www.mongodb.com/compatibility/spring-boot).
-- See https://spring.io/projects/spring-data for Spring Data abstraction for database.
-- See `emirates/src/main/resources/flights.http` for sample client side request to emirates graphql server.
+### Getting started
 
-### American Airlines
-#### Run Redis for local testing
-
-```bash
-docker run --name redis -p 6379:6379 redis:6.2-alpine 
 ```
+./run-services.sh
+```
+
+Note: Wait for 1-2 mins after Broker is started to make a graphql request at http://localhost:8080/graphiql, since [we need to wait for airline services to be registered](https://cloud.spring.io/spring-cloud-netflix/multi/multi__service_discovery_eureka_clients.html#_why_is_it_so_slow_to_register_a_service).
 
 #### Sample query
 Request
