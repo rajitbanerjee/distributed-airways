@@ -2,6 +2,17 @@
 
 ## TEMPORARY INFO
 
+### CLI Client
+
+```
+./run-services.sh
+```
+ Wait for all services to start.
+
+```
+mvn exec:java -pl cli-client
+```
+
 ### Emirates
 - For testing, mongodb must be running in the background on default port.
   ```

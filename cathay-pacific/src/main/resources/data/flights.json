@@ -1,6 +1,6 @@
 [
     {
-        "id": "flight1",
+        "id": "cathay-flight1",
         "airline": "Cathay Pacific",
         "flightNumber": ["EK162", "EK570"],
         "time": ["12:55", "00:30", "02:00", "07:40"],
@@ -13,7 +13,7 @@
         "category": ["Economy", "Business", "First"]
     },
     {
-        "id": "flight2",
+        "id": "cathay-flight2",
         "airline": "Cathay Pacific",
         "flightNumber": ["EK162", "EK408"],
         "time": ["12:55", "00:30", "03:00", "23:20"],
