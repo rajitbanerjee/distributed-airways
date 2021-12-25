@@ -15,18 +15,12 @@ import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 public class FlightKey implements Serializable {
 
     @PrimaryKeyColumn(name = "sourceCity", type = PARTITIONED)
-    @Getter
-    @Setter
     private String sourceCity;
 
     @PrimaryKeyColumn(name = "destinationCity", ordinal = 0)
-    @Getter
-    @Setter
     private String destinationCity;
 
     @PrimaryKeyColumn(name = "dayOfWeek", ordinal = 1, ordering = DESCENDING)
-    @Getter
-    @Setter
     private List<String> dayOfWeek;
 
     @Override

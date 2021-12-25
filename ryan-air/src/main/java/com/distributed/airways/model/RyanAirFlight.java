@@ -13,19 +13,19 @@ public class RyanAirFlight {
 
     @PrimaryKey private FlightKey key;
 
-    @Column @Getter @Setter private String id;
+    @Column private String id;
 
-    @Column @Getter @Setter private String airline;
+    @Column private String airline;
 
-    @Column @Getter @Setter private List<String> flightNumber;
+    @Column private List<String> flightNumber;
 
-    @Column @Getter @Setter private List<String> time;
+    @Column private List<String> time;
 
-    @Column @Getter @Setter private String sourceAirport;
+    @Column private String sourceAirport;
 
-    @Column @Getter @Setter private String destinationAirport;
+    @Column private String destinationAirport;
 
-    @Column @Getter @Setter private List<Double> price;
+    @Column private List<Double> price;
 
-    @Column @Getter @Setter private List<String> category;
+    @Column private List<String> category;
 }
