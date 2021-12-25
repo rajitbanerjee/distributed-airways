@@ -11,7 +11,15 @@ services:
     container_name: mongodb
     logging:
       driver: none
-
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    logging:
+      driver: none
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
   # central
   broker:
     build: broker
@@ -25,24 +33,23 @@ services:
   american-airlines:
     build: american-airlines
     container_name: american-airlines
-    # ports:
-    #   - "8081:8081"
     environment:
       - SERVER_PORT=8081
       - DATABASE_HOST=redis
       - DATABASE_PORT=6379
     depends_on:
       - redis
-  # cathay-pacific:
-  #   build: cathay-pacific
-  #   container_name: cathay-pacific
-  #   ports:
-  #     - "8082:8082"
+  cathay-pacific:
+    build: cathay-pacific
+    container_name: cathay-pacific
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+      - SERVER_PORT=8082
+    depends_on:
+      - postgres
   emirates:
     build: emirates
     container_name: emirates
-    # ports:
-    #   - "8083:8083"
     environment:
       - SERVER_PORT=8083
       - DATABASE_NAME=emirates_flights
@@ -50,6 +57,7 @@ services:
       - DATABASE_PORT=27017
     depends_on:
       - mongodb
+    
   # ryanair:
   #   build: ryanair
   #   container_name: ryanair

@@ -8,7 +8,7 @@
     <modules>
         <module>core</module>
         <module>american-airlines</module>
-        <!-- <module>cathay-pacific</module> -->
+        <module>cathay-pacific</module>
         <module>emirates</module>
         <!-- <module>ryanair</module> -->
         <module>broker</module>

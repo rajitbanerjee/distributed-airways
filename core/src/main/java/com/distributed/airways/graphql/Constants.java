@@ -11,5 +11,5 @@ public class Constants {
                     + " destinationAirport dayOfWeek price category }}";
 
     public static final List<String> AIRLINE_HOSTS =
-            Arrays.asList("american-airlines:8081", "emirates:8083");
+            Arrays.asList("american-airlines:8081", "cathay-pacific:8082", "emirates:8083");
 }
