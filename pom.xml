@@ -12,6 +12,6 @@
         <module>emirates</module>
         <!-- <module>ryanair</module> -->
         <module>broker</module>
-        <!-- <module>client</module> -->
+        <module>cli-client</module>
     </modules>
 </project>
