@@ -4,10 +4,11 @@ import static graphql.schema.idl.TypeRuntimeWiring.newTypeWiring;
 
 import com.distributed.airways.model.RyanAirFlight;
 import com.distributed.airways.repository.RyanAirRepository;
+import com.distributed.airways.utils.FileIO;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 import com.google.gson.Gson;
-import com.google.gson.stream.JsonReader;
+import com.google.gson.reflect.TypeToken;
 import graphql.GraphQL;
 import graphql.schema.DataFetcher;
 import graphql.schema.GraphQLSchema;
@@ -15,10 +16,9 @@ import graphql.schema.idl.RuntimeWiring;
 import graphql.schema.idl.SchemaGenerator;
 import graphql.schema.idl.SchemaParser;
 import graphql.schema.idl.TypeDefinitionRegistry;
-import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +35,8 @@ public class GraphQLProvider {
     private List<RyanAirFlight> flights;
     private static final String SCHEMA = "schema.graphqls";
     private static final String JSON = "flights.json";
+    private static final String BASE_PATH = "data";
+    private final Gson gson = new Gson();;
 
     @PostConstruct
     public void init() throws IOException {
@@ -46,26 +48,24 @@ public class GraphQLProvider {
     }
 
     private void populateRepository() {
+        try {
+            String jsonString = FileIO.readFileAsString(BASE_PATH + "/flights.json");
+            Type listType = new TypeToken<List<RyanAirFlight>>() {}.getType();
+            flights = gson.fromJson(jsonString, listType);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        flightRepository.deleteAll();
+        flightRepository.saveAll(flights);
         // try {
-        //     URL url = Resources.getResource(JSON);
-        //     String jsonString = Resources.toString(url, Charsets.UTF_8);
-        //     flights =
-        //             JsonIterator.deserialize(jsonString, new TypeLiteral<List<RyanAirFlight>>()
-        // {});
+        //     String jsonString = FileIO.readFileAsString("flight.json");
+        //     Type listType = new TypeToken<List<RyanAirFlight>>() {}.getType();
+        //     flights = gson.fromJson(jsonString, listType);
         //     flightRepository.deleteAll();
         //     flightRepository.saveAll(flights);
         // } catch (IOException e) {
         //     e.printStackTrace();
         // }
-        try {
-            String jsonString = FileIO.readFileAsString("flight.json");
-            Type listType = new TypeToken<List<RyanAirFlight>>() {}.getType();
-            flights = gson.fromJson(jsonString, listType);
-            flightRepository.deleteAll();
-            flightRepository.saveAll(flights);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private GraphQLSchema buildSchema(String sdl) throws IOException {
