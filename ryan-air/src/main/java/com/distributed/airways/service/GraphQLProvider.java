@@ -3,11 +3,11 @@ package com.distributed.airways.service;
 import static graphql.schema.idl.TypeRuntimeWiring.newTypeWiring;
 
 import com.distributed.airways.model.RyanAirFlight;
-import com.distributed.airways.repository.FlightRepository;
+import com.distributed.airways.repository.RyanAirRepository;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
-import com.jsoniter.JsonIterator;
-import com.jsoniter.spi.TypeLiteral;
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
 import graphql.GraphQL;
 import graphql.schema.DataFetcher;
 import graphql.schema.GraphQLSchema;
@@ -15,8 +15,10 @@ import graphql.schema.idl.RuntimeWiring;
 import graphql.schema.idl.SchemaGenerator;
 import graphql.schema.idl.SchemaParser;
 import graphql.schema.idl.TypeDefinitionRegistry;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +29,7 @@ import org.springframework.stereotype.Component;
 public class GraphQLProvider {
 
     @Autowired RyanAirService service;
-    @Autowired FlightRepository flightRepository;
+    @Autowired RyanAirRepository flightRepository;
 
     private GraphQL graphQL;
     private List<RyanAirFlight> flights;
@@ -44,11 +46,21 @@ public class GraphQLProvider {
     }
 
     private void populateRepository() {
+        // try {
+        //     URL url = Resources.getResource(JSON);
+        //     String jsonString = Resources.toString(url, Charsets.UTF_8);
+        //     flights =
+        //             JsonIterator.deserialize(jsonString, new TypeLiteral<List<RyanAirFlight>>()
+        // {});
+        //     flightRepository.deleteAll();
+        //     flightRepository.saveAll(flights);
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
         try {
-            URL url = Resources.getResource(JSON);
-            String jsonString = Resources.toString(url, Charsets.UTF_8);
-            flights =
-                    JsonIterator.deserialize(jsonString, new TypeLiteral<List<RyanAirFlight>>() {});
+            String jsonString = FileIO.readFileAsString("flight.json");
+            Type listType = new TypeToken<List<RyanAirFlight>>() {}.getType();
+            flights = gson.fromJson(jsonString, listType);
             flightRepository.deleteAll();
             flightRepository.saveAll(flights);
         } catch (IOException e) {

@@ -1,7 +1,7 @@
 package com.distributed.airways.service;
 
 import com.distributed.airways.model.RyanAirFlight;
-import com.distributed.airways.repository.FlightRepository;
+import com.distributed.airways.repository.RyanAirRepository;
 import com.distributed.airways.utils.DateFormatter;
 import graphql.schema.DataFetcher;
 import java.io.IOException;
@@ -16,8 +16,8 @@ public class RyanAirService {
     private static final int REGULAR_PREMIUM = 5;
     private static final int PLUS_PREMIUM = 8;
 
-    public DataFetcher<List<RyanAirFlight>> getFlightsDataFetcher(FlightRepository flightRepository)
-            throws IOException {
+    public DataFetcher<List<RyanAirFlight>> getFlightsDataFetcher(
+            RyanAirRepository flightRepository) throws IOException {
         return dataFetchingEnvironment -> {
             String date = dataFetchingEnvironment.getArgument("date");
             String sourceCity = dataFetchingEnvironment.getArgument("sourceCity");
