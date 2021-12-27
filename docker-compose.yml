@@ -38,22 +38,12 @@ services:
       - DATABASE_PORT=6379
     depends_on:
       - redis
-  ryan-air:
-    build: ryan-air
-    container_name: ryan-air
-    environment:
-      - SERVER_PORT=8082
-      - DATABASE_NAME=ryanair_flights
-      - DATABASE_HOST=mongodb
-      - DATABASE_PORT=27017
-    depends_on:
-      - mongodb
 
   cathay-pacific:
     build: cathay-pacific
     container_name: cathay-pacific
     environment:
-      - SERVER_PORT=8084
+      - SERVER_PORT=8082
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
@@ -71,4 +61,13 @@ services:
     depends_on:
       - mongodb
 
-
+  ryan-air:
+    build: ryan-air
+    container_name: ryan-air
+    environment:
+      - SERVER_PORT=8084
+      - DATABASE_NAME=ryanair_flights
+      - DATABASE_HOST=mongodb
+      - DATABASE_PORT=27017
+    depends_on:
+      - mongodb
