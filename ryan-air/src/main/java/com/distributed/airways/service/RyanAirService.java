@@ -5,6 +5,8 @@ import com.distributed.airways.repository.RyanAirRepository;
 import com.distributed.airways.utils.DateFormatter;
 import graphql.schema.DataFetcher;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 import org.springframework.stereotype.Component;
 
@@ -12,10 +14,9 @@ import org.springframework.stereotype.Component;
 public class RyanAirService {
     private List<RyanAirFlight> flights;
     private RyanAirRepository flightRepository;
-    private static final String REGULAR_CLASS = "Regular";
-    private static final String PLUS_CLASS = "Plus";
-    private static final int REGULAR_PREMIUM = 5;
-    private static final int PLUS_PREMIUM = 8;
+
+    private static final String[] CLASSES = {"Value", "Regular", "Plus"};
+    private static final int[] FARES = {1, 4, 6};
 
     public RyanAirService(RyanAirRepository flighRepository) {
         this.flightRepository = flighRepository;
@@ -36,23 +37,21 @@ public class RyanAirService {
     }
 
     private void updateTicketPrices() {
-        applyTicketClassPremiums();
+        applyTicketTypePremiums();
         // TODO? using utils from core here, or just post-processing in broker?
         // applyWeekendPremiums();
         // applySeasonalPremiums();
     }
 
-    private void applyTicketClassPremiums() {
+    private void applyTicketTypePremiums() {
         for (RyanAirFlight flight : flights) {
             List<Double> prices = flight.getPrice();
-            Double valuePrice = prices.get(0);
+            Double valuePrice = prices.remove(0);
 
             for (String ticketClass : flight.getCategory()) {
-                if (ticketClass.equals(REGULAR_CLASS)) {
-                    prices.add(valuePrice * REGULAR_PREMIUM);
-                } else if (ticketClass.equals(PLUS_CLASS)) {
-                    prices.add(valuePrice * PLUS_PREMIUM);
-                }
+                int multiplier =
+                        (int) Array.get(FARES, Arrays.asList(CLASSES).indexOf(ticketClass));
+                prices.add(valuePrice * multiplier);
             }
 
             flight.setPrice(prices);

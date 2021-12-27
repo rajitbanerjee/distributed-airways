@@ -26,8 +26,7 @@ public class Application {
                 List<RyanAirFlight> flights;
                 Gson gson = new Gson();
                 String flightsString = FileIO.readFileAsString("data/flights.json");
-                Type listType = new TypeToken<List<RyanAirFlight>>() {
-                }.getType();
+                Type listType = new TypeToken<List<RyanAirFlight>>() {}.getType();
                 flights = gson.fromJson(flightsString, listType);
                 flightService.deleteFlights();
                 flightService.saveFlights(flights);

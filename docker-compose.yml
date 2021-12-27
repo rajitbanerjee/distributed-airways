@@ -41,8 +41,6 @@ services:
   ryan-air:
     build: ryan-air
     container_name: ryan-air
-    ports:
-      - "8082:8082"
     environment:
       - SERVER_PORT=8082
       - DATABASE_NAME=ryanair_flights
@@ -54,8 +52,6 @@ services:
   cathay-pacific:
     build: cathay-pacific
     container_name: cathay-pacific
-    ports:
-      - "8084:8084"
     environment:
       - SERVER_PORT=8084
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
