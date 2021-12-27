@@ -1,6 +1,6 @@
 [
     {
-        "id": "flight1",
+        "id": "FR-flight1",
         "airline": "Ryan Air",
         "flightNumber": ["FR288"],
         "time": ["18:50", "20:10"],
@@ -13,7 +13,21 @@
         "category": ["Value", "Regular", "Plus"]
     },
     {
-        "id": "flight2",
+        "id": "FR-flight1R",
+        "airline": "Ryan Air",
+        "flightNumber": ["FR271"],
+        "time": ["22:05", "23:30"],
+        "sourceCity": "London",
+        "destinationCity": "Dublin",
+        "sourceAirport": "STN",
+        "destinationAirport": "DUB",    
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "price": [21.99],
+        "category": ["Value", "Regular", "Plus"]
+    },
+
+    {
+        "id": "FR-flight2",
         "airline": "Ryan Air",
         "flightNumber": ["FR188"],
         "time": ["19:35", "21:05"],
@@ -23,6 +37,154 @@
         "destinationAirport": "LGW",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         "price": [25.00],
+        "category": ["Value", "Regular", "Plus"]
+    },
+    {
+        "id": "FR-flight2R",
+        "airline": "Ryan Air",
+        "flightNumber": ["FR119"],
+        "time": ["21:30", "22:50"],
+        "sourceCity": "London",
+        "destinationCity": "Dublin",
+        "sourceAirport": "LGW",
+        "destinationAirport": "DUB",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "price": [22.00],
+        "category": ["Value", "Regular", "Plus"]
+    },
+
+    {
+        "id": "FR-flight3",
+        "airline": "Ryan Air",
+        "flightNumber": ["FR988"],
+        "time": ["12:30", "00:05"],
+        "sourceCity": "Dublin",
+        "destinationCity": "Dubai",
+        "sourceAirport": "DUB",
+        "destinationAirport": "DXB",
+        "dayOfWeek": ["Monday","Friday"],
+        "price": [150.00],
+        "category": ["Value", "Regular", "Plus"]
+    },
+    {
+        "id": "FR-flight3R",
+        "airline": "Ryan Air",
+        "flightNumber": ["FR998"],
+        "time": ["01:30", "05:45"],
+        "sourceCity": "Dubai",
+        "destinationCity": "Dublin",
+        "sourceAirport": "DXB",
+        "destinationAirport": "DUB",
+        "dayOfWeek": ["Tuesday","Saturday"],
+        "price": [160.00],
+        "category": ["Value", "Regular", "Plus"]
+    },
+
+    {
+        "id": "FR-flight4",
+        "airline": "Ryan Air",
+        "flightNumber": ["FR987"],
+        "time": ["13:10", "16:20"],
+        "sourceCity": "Dublin",
+        "destinationCity": "New York",
+        "sourceAirport": "DUB",
+        "destinationAirport": "SWF",
+        "dayOfWeek": ["Wednesday","Friday","Sunday"],
+        "price": [99.00],
+        "category": ["Value", "Regular", "Plus"]
+    },
+    {
+        "id": "FR-flight4R",
+        "airline": "Ryan Air",
+        "flightNumber": ["FR997"],
+        "time": ["17:30", "04:45"],
+        "sourceCity": "New York",
+        "destinationCity": "Dublin",
+        "sourceAirport": "SWF",
+        "destinationAirport": "DUB",
+        "dayOfWeek": ["Wednesday","Friday","Sunday"],
+        "price": [89.00],
+        "category": ["Value", "Regular", "Plus"]
+    },
+
+    {
+        "id": "FR-flight5",
+        "airline": "Ryan Air",
+        "flightNumber": ["FR967"],
+        "time": ["15:10", "18:00"],
+        "sourceCity": "Dublin",
+        "destinationCity": "New York",
+        "sourceAirport": "DUB",
+        "destinationAirport": "JFK",
+        "dayOfWeek": ["Wednesday","Friday","Sunday"],
+        "price": [199.00],
+        "category": ["Value", "Regular", "Plus"]
+    },
+    {
+        "id": "FR-flight5R",
+        "airline": "Ryan Air",
+        "flightNumber": ["FR968"],
+        "time": ["20:30", "07:35"],
+        "sourceCity": "New York",
+        "destinationCity": "Dublin",
+        "sourceAirport": "JFK",
+        "destinationAirport": "DUB",
+        "dayOfWeek": ["Wednesday","Friday","Sunday"],
+        "price": [165.00],
+        "category": ["Value", "Regular", "Plus"]
+    },
+
+    {
+        "id": "FR-flight6",
+        "airline": "Ryan Air",
+        "flightNumber": ["FR9428"],
+        "time": ["09:35", "13:05"],
+        "sourceCity": "Dublin",
+        "destinationCity": "Milan",
+        "sourceAirport": "DUB",
+        "destinationAirport": "BGY",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "price": [22.00],
+        "category": ["Value", "Regular", "Plus"]
+    },
+    {
+        "id": "FR-flight6R",
+        "airline": "Ryan Air",
+        "flightNumber": ["FR6326"],
+        "time": ["18:00", "19:35"],
+        "sourceCity": "Milan",
+        "destinationCity": "Dublin",
+        "sourceAirport": "BGY",
+        "destinationAirport": "DUB",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "price": [27.00],
+        "category": ["Value", "Regular", "Plus"]
+    },
+
+    {
+        "id": "FR-flight7",
+        "airline": "Ryan Air",
+        "flightNumber": ["FR3977"],
+        "time": ["07:50", "11:15"],
+        "sourceCity": "Dublin",
+        "destinationCity": "Barcelona",
+        "sourceAirport": "DUB",
+        "destinationAirport": "BCN",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "price": [40.00],
+        "category": ["Value", "Regular", "Plus"]
+    },
+    {
+        "id": "FR-flight7R",
+        "airline": "Ryan Air",
+        "flightNumber": ["FR3976"],
+        "time": ["12:00", "13:45"],
+        "sourceCity": "Barcelona",
+        "destinationCity": "Dublin",
+        "sourceAirport": "BCN",
+        "destinationAirport": "DUB",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "price": [50.00],
         "category": ["Value", "Regular", "Plus"]
     }
 ]
