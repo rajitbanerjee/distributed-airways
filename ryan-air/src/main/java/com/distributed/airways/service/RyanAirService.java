@@ -15,7 +15,7 @@ public class RyanAirService {
     private List<RyanAirFlight> flights;
     private RyanAirRepository flightRepository;
 
-    private static final String[] CLASSES = {"Value", "Regular", "Plus"};
+    private static final String[] BAGGAGE_CLASSES = {"Value", "Regular", "Plus"};
     private static final int[] FARES = {1, 4, 6};
 
     public RyanAirService(RyanAirRepository flighRepository) {
@@ -37,20 +37,23 @@ public class RyanAirService {
     }
 
     private void updateTicketPrices() {
-        applyTicketTypePremiums();
+        applyBaggageClassPremiums();
         // TODO? using utils from core here, or just post-processing in broker?
         // applyWeekendPremiums();
         // applySeasonalPremiums();
     }
 
-    private void applyTicketTypePremiums() {
+    private void applyBaggageClassPremiums() {
         for (RyanAirFlight flight : flights) {
             List<Double> prices = flight.getPrice();
             Double valuePrice = prices.remove(0);
 
-            for (String ticketClass : flight.getCategory()) {
+            for (String baggageClass : flight.getCategory()) {
                 int multiplier =
-                        (int) Array.get(FARES, Arrays.asList(CLASSES).indexOf(ticketClass));
+                        (int)
+                                Array.get(
+                                        FARES,
+                                        Arrays.asList(BAGGAGE_CLASSES).indexOf(baggageClass));
                 prices.add(valuePrice * multiplier);
             }
 
