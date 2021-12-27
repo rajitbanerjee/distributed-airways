@@ -1,6 +1,6 @@
 [
     {
-        "id": "Flight1",
+        "id": "cathay-flight1",
         "airline": "Cathay Pacific",
         "flightNumber": "CX251",
         "time": ["23:55", "05:00"],
@@ -13,7 +13,7 @@
         "category": ["Economy", "Business", "First"]
     },
     {
-        "id": "Flight2",
+        "id": "cathay-flight2",
         "airline": "Cathay Pacific",
         "flightNumber": "CX873",
         "time": ["22:55", "06:10"],
@@ -25,4 +25,4 @@
         "price": [900.00],
         "category": ["Economy", "Business", "First"]
     }
-  ] 
+  ]
