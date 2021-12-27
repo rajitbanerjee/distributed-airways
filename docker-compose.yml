@@ -61,11 +61,13 @@ services:
     depends_on:
       - mongodb
 
-  # ryanair:
-  #   build: ryanair
-  #   container_name: ryanair
-  #   ports:
-  #     - "8084:8084"
-
-
-
+  ryan-air:
+    build: ryan-air
+    container_name: ryan-air
+    environment:
+      - SERVER_PORT=8084
+      - DATABASE_NAME=ryanair_flights
+      - DATABASE_HOST=mongodb
+      - DATABASE_PORT=27017
+    depends_on:
+      - mongodb
