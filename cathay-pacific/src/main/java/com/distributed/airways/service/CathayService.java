@@ -25,9 +25,9 @@ public class CathayService {
 
             for (String category : flight.getCategory()) {
                 if (category.equals("Business")) {
-                    prices.add(basePrice + 200);
+                    prices.add(basePrice * 5);
                 } else if (category.equals("First")) {
-                    prices.add(basePrice + 400);
+                    prices.add(basePrice * 8);
                 }
             }
             flight.setPrice(prices);

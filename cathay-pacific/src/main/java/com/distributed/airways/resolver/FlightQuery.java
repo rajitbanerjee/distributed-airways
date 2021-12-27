@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class FlightQuery implements GraphQLQueryResolver {
-    private final CathayRepository repo;
+    private final CathayRepository flightRepository;
     private final CathayService flightService;
 
     public List<CathayFlight> flights(String date, String sourceCity, String destinationCity) {
@@ -23,7 +23,8 @@ public class FlightQuery implements GraphQLQueryResolver {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        List<CathayFlight> flights = repo.findFlights(dayOfWeek, sourceCity, destinationCity);
+        List<CathayFlight> flights =
+                flightRepository.findFlights(dayOfWeek, sourceCity, destinationCity);
         flightService.updateTicketPrice(flights);
         return flights;
     }
