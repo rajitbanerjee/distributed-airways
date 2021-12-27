@@ -54,8 +54,10 @@ services:
   cathay-pacific:
     build: cathay-pacific
     container_name: cathay-pacific
+    ports:
+      - "8084:8084"
     environment:
-      - SERVER_PORT=8082
+      - SERVER_PORT=8084
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
@@ -72,12 +74,5 @@ services:
       - DATABASE_PORT=27017
     depends_on:
       - mongodb
-
-  # ryanair:
-  #   build: ryanair
-  #   container_name: ryanair
-  #   ports:
-  #     - "8084:8084"
-
 
 

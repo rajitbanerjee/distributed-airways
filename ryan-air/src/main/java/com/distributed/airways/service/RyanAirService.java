@@ -11,10 +11,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class RyanAirService {
     private List<RyanAirFlight> flights;
+    private RyanAirRepository flightRepository;
     private static final String REGULAR_CLASS = "Regular";
     private static final String PLUS_CLASS = "Plus";
     private static final int REGULAR_PREMIUM = 5;
     private static final int PLUS_PREMIUM = 8;
+
+    public RyanAirService(RyanAirRepository flighRepository) {
+        this.flightRepository = flighRepository;
+    }
 
     public DataFetcher<List<RyanAirFlight>> getFlightsDataFetcher(
             RyanAirRepository flightRepository) throws IOException {
@@ -52,5 +57,13 @@ public class RyanAirService {
 
             flight.setPrice(prices);
         }
+    }
+
+    public void saveFlights(List<RyanAirFlight> flights) {
+        flightRepository.saveAll(flights);
+    }
+
+    public void deleteFlights() {
+        flightRepository.deleteAll();
     }
 }
