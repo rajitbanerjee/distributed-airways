@@ -2,7 +2,7 @@
     {
         "id": "cathay-flight1",
         "airline": "Cathay Pacific",
-        "flightNumber": "CX251",
+        "flightNumber": ["CX251"],
         "time": ["23:55", "05:00"],
         "sourceCity": "Hong Kong",
         "destinationCity": "London",
@@ -15,7 +15,7 @@
     {
         "id": "cathay-flight2",
         "airline": "Cathay Pacific",
-        "flightNumber": "CX873",
+        "flightNumber": ["CX873"],
         "time": ["22:55", "06:10"],
         "sourceCity": "San Francisco",
         "destinationCity": "Hong Kong",
