@@ -2,25 +2,28 @@ package com.distributed.airways.service;
 
 import com.distributed.airways.entity.Flight;
 import com.distributed.airways.repository.FlightRepository;
+import com.distributed.airways.utils.FileIO;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.*;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
 public class FlightService {
+    private static final String BASE_PATH = "data";
+    private static final Map<String, Double> DISCOUNTS =
+            ImmutableMap.of("None", 0.0, "Silver", 0.1, "Gold", 0.2, "Platinum", 0.3);
     private final FlightRepository flightRepository;
-    private static final String AIRLINE_NAME = "American Airlines";
-    private static final Map<String, Double> DISCOUNTS = ImmutableMap.of("None", 0.0, "Silver", 0.1, "Gold", 0.2, "Platinum", 0.3);
-    private static final Flight[] flights = new Flight[]{
-            new Flight("1", AIRLINE_NAME, Collections.singletonList("AA0011"), Arrays.asList("08:00", "09:00"), "Dublin", "London", "DUB", "LHR", ImmutableSet.of("Monday", "Friday"), 100),
-            new Flight("2", AIRLINE_NAME, Collections.singletonList("AA0012"), Arrays.asList("09:00", "10:00"), "Dublin", "London", "DUB", "LHR", ImmutableSet.of("Monday", "Thursday"), 200),
-            new Flight("3", AIRLINE_NAME, Collections.singletonList("AA0012"), Arrays.asList("08:00", "11:00"), "London", "Madrid", "LHR", "MAD", ImmutableSet.of("Tuesday", "Friday"), 300)};
+    private final Gson gson;
 
     public List<Double> getPrices(Flight flight) {
         List<Double> prices = new ArrayList<>();
@@ -42,7 +45,9 @@ public class FlightService {
 
     @Transactional(readOnly = true)
     public List<Flight> getFlights(String dayOfWeek, String sourceCity, String destinationCity) {
-        List<Flight> query = flightRepository.findFlightBySourceCityAndDestinationCity(sourceCity, destinationCity);
+        List<Flight> query =
+                flightRepository.findFlightBySourceCityAndDestinationCity(
+                        sourceCity, destinationCity);
         List<Flight> result = new ArrayList<>();
         for (Flight flight : query) {
             if (flight.getDayOfWeek().contains(dayOfWeek)) {
@@ -59,7 +64,15 @@ public class FlightService {
 
     @Transactional
     public void initDatabase() {
+        List<Flight> flights = new ArrayList<>();
+        try {
+            String jsonString = FileIO.readFileAsString(BASE_PATH + "/flight.json");
+            Type listType = new TypeToken<List<Flight>>() {}.getType();
+            flights = gson.fromJson(jsonString, listType);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         flightRepository.deleteAll();
-        flightRepository.saveAll(Arrays.asList(flights));
+        flightRepository.saveAll(flights);
     }
 }

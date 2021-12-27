@@ -10,6 +10,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 @RequiredArgsConstructor
 public class Application {
     public static void main(String[] args) {
+        System.out.println("Starting airline service: American Airlines");
         ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
         initDatabase(context);
     }

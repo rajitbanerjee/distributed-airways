@@ -8,17 +8,10 @@
     <modules>
         <module>core</module>
         <module>american-airlines</module>
-        <!-- <module>cathay-pacific</module> -->
+        <module>cathay-pacific</module>
         <module>emirates</module>
-        <module>ryan-air</module>
-        <!-- <module>broker</module> -->
-        <!-- <module>client</module> -->
+        <!-- <module>ryanair</module> -->
+        <module>broker</module>
+        <module>cli-client</module>
     </modules>
-
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
 </project>
