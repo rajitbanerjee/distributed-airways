@@ -8,9 +8,9 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class RyanAirService {
     private List<RyanAirFlight> flights;
     private RyanAirRepository flightRepository;
