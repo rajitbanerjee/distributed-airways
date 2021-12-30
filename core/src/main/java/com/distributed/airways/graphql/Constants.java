@@ -11,7 +11,7 @@ public class Constants {
                     + " destinationAirport dayOfWeek price category }}";
 
     public static final String BROKER_PORT = "8080";
-
+    public static final String UI_CLIENT = "http://localhost:3000";
     public static final List<String> AIRLINE_HOSTS =
             Arrays.asList(
                     "american-airlines:8081",

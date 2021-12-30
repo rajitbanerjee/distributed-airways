@@ -15,6 +15,7 @@ public class CathayService {
     }
 
     public void save(List<CathayFlight> flights) {
+        flightRepository.deleteAll();
         flightRepository.saveAll(flights);
     }
 

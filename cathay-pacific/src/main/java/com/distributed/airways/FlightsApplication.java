@@ -31,9 +31,7 @@ public class FlightsApplication {
             try {
                 List<CathayFlight> flights = mapper.readValue(inputStream, typeReference);
                 flightService.save(flights);
-                System.out.println("Flights Saved!");
             } catch (IOException e) {
-                System.out.println("Unable to save flights: " + e.getMessage());
             }
         };
     }
