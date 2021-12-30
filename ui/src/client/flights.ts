@@ -2,20 +2,29 @@ import { request } from "graphql-request";
 import * as queries from "./queries";
 import { GraphQLResponse } from "./types";
 
-const ENDPOINT = "http://localhost:8080/graphql";
+const BROKER_ENDPOINT = "http://localhost:8080/graphql";
 
-const makeRequest = async (query: string, variables: { [key: string]: any }): Promise<GraphQLResponse | undefined> => {
-  return request(ENDPOINT, query, variables);
+const makeRequest = async (query: string, variables: { [key: string]: any }): Promise<GraphQLResponse> => {
+  return request(BROKER_ENDPOINT, query, variables);
 };
 
 export const getFlights = async (variables: {
   date: string;
   sourceCity: string;
   destinationCity: string;
-}): Promise<GraphQLResponse | undefined> => {
+}): Promise<GraphQLResponse> => {
   return makeRequest(queries.flightsByDateSourceCityAndDestinationCity, variables);
 };
 
-// (async () => {
-//   console.log(await getFlights("2021-12-30", "Dublin", "London"));
-// })();
+export const getSourceCityOptions = async (): Promise<GraphQLResponse> => {
+  // TODO
+  // return makeRequest(BROKER_ENDPOINT, queries.)
+  return { cities: ["Dublin"] };
+};
+
+
+export const getDestinationCityOptions = async (): Promise<GraphQLResponse> => {
+  // TODO
+  // return makeRequest(BROKER_ENDPOINT, queries.)
+  return { cities: ["London", "Melbourne"] };
+};

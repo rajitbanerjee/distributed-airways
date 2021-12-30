@@ -3,7 +3,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./SearchBar.css";
 
 interface Props {
-  date: Date;
+  date?: Date;
   setDate: (date: Date) => void;
 }
 
@@ -19,6 +19,7 @@ const CustomDatePicker = ({ date, setDate }: Props) => {
         minDate={new Date()}
         monthsShown={2}
         closeOnScroll={true}
+        className="grey-border"
       />
     </div>
   );

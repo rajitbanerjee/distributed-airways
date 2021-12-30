@@ -6,3 +6,7 @@
   text-align: center;
 }
 
+.grey-border {
+  border-width: 1px;
+  border-color: lightgrey;
+}

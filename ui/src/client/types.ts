@@ -1,8 +1,9 @@
 export interface GraphQLResponse {
-  flights: Flight[];
+  flights?: Flight[];
+  cities?: string[];
 }
 
-interface Flight {
+export interface Flight {
   id: string;
   airline: string;
   flightNumber: string[];
