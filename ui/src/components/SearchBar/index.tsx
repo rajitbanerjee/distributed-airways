@@ -1,3 +1,4 @@
+import { SearchIcon, SmallCloseIcon } from "@chakra-ui/icons";
 import { Button, HStack } from "@chakra-ui/react";
 import CityInput from "./CityInput";
 import CustomDatePicker from "./CustomDatePicker";
@@ -43,11 +44,17 @@ const SearchBar = ({
         isLoading={isLoading}
         isDisabled={!date || !sourceCity || !destinationCity}
         variant="solid"
+        rightIcon={<SearchIcon />}
         onClick={() => setSubmitForm(true)}
       >
         Search
       </Button>
-      <Button variant="solid" isDisabled={!date && !sourceCity && !destinationCity} onClick={() => setClear(true)}>
+      <Button
+        isDisabled={!date && !sourceCity && !destinationCity}
+        variant="solid"
+        rightIcon={<SmallCloseIcon />}
+        onClick={() => setClear(true)}
+      >
         Clear
       </Button>
     </HStack>
