@@ -19,7 +19,7 @@ const CustomDatePicker = ({ date, setDate }: Props) => {
         minDate={new Date()}
         monthsShown={2}
         closeOnScroll={true}
-        className="grey-border"
+        className="date-field"
       />
     </div>
   );

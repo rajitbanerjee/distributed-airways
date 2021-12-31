@@ -19,12 +19,12 @@ export const getFlights = async (variables: {
 export const getSourceCityOptions = async (): Promise<GraphQLResponse> => {
   // TODO
   // return makeRequest(BROKER_ENDPOINT, queries.)
-  return { cities: ["Dublin"] };
+  return { cities: ["Dublin", "Dubai"] };
 };
 
 
 export const getDestinationCityOptions = async (): Promise<GraphQLResponse> => {
   // TODO
   // return makeRequest(BROKER_ENDPOINT, queries.)
-  return { cities: ["London", "Melbourne"] };
+  return { cities: ["London", "Melbourne", "Hong Kong", "New York", "Singapore"] };
 };

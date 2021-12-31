@@ -13,8 +13,6 @@ interface SelectOption {
   value: string;
 }
 
-const makeSelectOption = (s: string) => ({ label: s, value: s });
-
 const CityInput = ({ isSourceCity, cityOptions, city, setCity }: Props): JSX.Element => {
   const selectOptions: SelectOption[] | undefined = cityOptions?.map(makeSelectOption);
 
@@ -29,5 +27,7 @@ const CityInput = ({ isSourceCity, cityOptions, city, setCity }: Props): JSX.Ele
     </Box>
   );
 };
+
+const makeSelectOption = (s: string) => ({ label: s, value: s });
 
 export default CityInput;

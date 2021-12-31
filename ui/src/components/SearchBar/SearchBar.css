@@ -6,7 +6,7 @@
   text-align: center;
 }
 
-.grey-border {
-  border-width: 1px;
-  border-color: lightgrey.50;
+.date-field {
+  border-width: 1.5px;
+  border-color: #EBECF0;
 }
