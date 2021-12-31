@@ -8,9 +8,10 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
-import org.springframework.stereotype.Component;
+import java.util.stream.Collectors;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class RyanAirService {
     private List<RyanAirFlight> flights;
     private RyanAirRepository flightRepository;
@@ -20,6 +21,24 @@ public class RyanAirService {
 
     public RyanAirService(RyanAirRepository flighRepository) {
         this.flightRepository = flighRepository;
+    }
+
+    public DataFetcher<List<String>> getSourceCitiesDataFetcher(
+            RyanAirRepository flightRepository) {
+        return dataFetchingEnvironment -> {
+            return flightRepository.findAll().stream()
+                    .map(flight -> flight.getSourceCity())
+                    .collect(Collectors.toList());
+        };
+    }
+
+    public DataFetcher<List<String>> getDestinationCitiesDataFetcher(
+            RyanAirRepository flightRepository) {
+        return dataFetchingEnvironment -> {
+            return flightRepository.findAll().stream()
+                    .map(flight -> flight.getDestinationCity())
+                    .collect(Collectors.toList());
+        };
     }
 
     public DataFetcher<List<RyanAirFlight>> getFlightsDataFetcher(

@@ -2,7 +2,8 @@ package com.distributed.airways.service;
 
 import com.distributed.airways.graphql.Constants;
 import com.distributed.airways.graphql.GraphQLQuery;
-import com.distributed.airways.graphql.GraphQLResponse;
+import com.distributed.airways.graphql.GraphQLResponseCities;
+import com.distributed.airways.graphql.GraphQLResponseFlights;
 import com.distributed.airways.model.Flight;
 import com.google.common.collect.ImmutableMap;
 import graphql.schema.DataFetcher;
@@ -16,6 +17,19 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class BrokerService {
+    private RestTemplate restTemplate = new RestTemplate();
+
+    public DataFetcher<List<String>> getSourceCitiesDataFetcher() {
+        return dataFetchingEnvironment -> {
+            return getCitiesFromAirlines(Constants.SOURCE_CITIES_QUERY, "sourceCities");
+        };
+    }
+
+    public DataFetcher<List<String>> getDestinationCitiesDataFetcher() {
+        return dataFetchingEnvironment -> {
+            return getCitiesFromAirlines(Constants.DESTINATION_CITIES_QUERY, "destinationCities");
+        };
+    }
 
     public DataFetcher<List<Flight>> getFlightsDataFetcher() throws IOException {
         return dataFetchingEnvironment -> {
@@ -26,9 +40,28 @@ public class BrokerService {
         };
     }
 
+    private List<String> getCitiesFromAirlines(String query, String type) {
+        GraphQLQuery body = new GraphQLQuery(query, null);
+        HttpEntity<GraphQLQuery> request = new HttpEntity<>(body);
+        List<String> cities = new ArrayList<>();
+
+        // Retrieve cities from each individual airline service
+        for (String airlineHost : Constants.AIRLINE_HOSTS) {
+            String url = "http://" + airlineHost + "/graphql";
+            GraphQLResponseCities response =
+                    restTemplate.postForObject(url, request, GraphQLResponseCities.class);
+            List<String> dataCities = response.getData().get(type);
+            for (String city : dataCities) {
+                if (!cities.contains(city)) {
+                    cities.add(city);
+                }
+            }
+        }
+        return cities;
+    }
+
     private List<Flight> getFlightsFromAirlines(
             String date, String sourceCity, String destinationCity) {
-        RestTemplate restTemplate = new RestTemplate();
         Map<String, String> variables =
                 ImmutableMap.of(
                         "date", date, "sourceCity", sourceCity, "destinationCity", destinationCity);
@@ -39,8 +72,8 @@ public class BrokerService {
         // Retrieve flights from each individual airline service
         for (String airlineHost : Constants.AIRLINE_HOSTS) {
             String url = "http://" + airlineHost + "/graphql";
-            GraphQLResponse response =
-                    restTemplate.postForObject(url, request, GraphQLResponse.class);
+            GraphQLResponseFlights response =
+                    restTemplate.postForObject(url, request, GraphQLResponseFlights.class);
             List<Flight> dataFlights = response.getData().get("flights");
             if (!dataFlights.isEmpty()) {
                 flights.addAll(dataFlights);

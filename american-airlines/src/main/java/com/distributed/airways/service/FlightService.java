@@ -11,6 +11,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -60,6 +61,20 @@ public class FlightService {
     @Transactional(readOnly = true)
     public List<Flight> getFlights() {
         return flightRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public List<String> getSourceCities() {
+        return flightRepository.findAll().stream()
+                .map(flight -> flight.getSourceCity())
+                .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public List<String> getDestinationCities() {
+        return flightRepository.findAll().stream()
+                .map(flight -> flight.getDestinationCity())
+                .collect(Collectors.toList());
     }
 
     @Transactional

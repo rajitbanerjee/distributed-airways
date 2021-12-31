@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
+        System.out.println("Starting airline service: Ryanair");
         SpringApplication.run(Application.class, args);
     }
 

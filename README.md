@@ -1,87 +1,57 @@
-# Distributed Airways
+## Distributed Airways
 
-## TEMPORARY INFO
+### Requirements
 
-### CLI Client
+- Docker Desktop for Mac/Windows
+- JDK 8 and Apache Maven
+- Node.js [_Note_: This is only required if starting the development server for the `ui/` module. Not necessary when running the services with `docker-compose`.]
 
-```
-./run-services.sh
-```
- Wait for all services to start.
+### Getting Started
 
-```
-mvn exec:java -pl cli-client
-```
+- TLDR;
 
-### Emirates
-- For testing, mongodb must be running in the background on default port.
+  - Clean build and start:
+    ```
+    time ./clean-start.sh && sleep 25 && open http://localhost:1337
+    ```
+  - [Optional] Quicker subsequent build alternative:
+
+    ```
+    docker-compose down && docker-compose up -d && sleep 25 && open http://localhost:1337
+    ```
+
+- Compile and run all services in Docker (detached mode) using:
+
   ```
-  docker run --name mongodb -d -p 27017:27017 mongo
+  ./clean-start.sh
   ```
-- No database connection code is required since [Spring Boot handles that](https://www.mongodb.com/compatibility/spring-boot).
-- See https://spring.io/projects/spring-data for Spring Data abstraction for database.
-- See `emirates/src/main/resources/flights.http` for sample client side request to emirates graphql server.
 
-### American Airlines
-#### Run Redis for local testing
+  This is equivalent to running:
 
-```bash
-docker run --name redis -p 6379:6379 redis:6.2-alpine 
-```
+  ```
+  mvn clean install
+  docker-compose down --remove-orphans
+  docker-compose build --no-cache
+  docker-compose up -d
+  ```
 
-#### Sample query
-Request
-```graphql
-{
-  flights(date: "2021-12-24", sourceCity:"Dublin", destinationCity:"London") {
-    id,
-    time,
-    dayOfWeek,
-    price
-  }
-}
-```
-Response
-```json
-{
-  "data": {
-    "flights": [
-      {
-        "id": "1",
-        "time": [
-          "08:00",
-          "09:00"
-        ],
-        "dayOfWeek": [
-          "Monday",
-          "Friday"
-        ],
-        "category": [
-          "None",
-          "Silver",
-          "Gold",
-          "Platinum"
-        ],
-        "price": [
-          100,
-          90,
-          80,
-          70
-        ]
-      }
-    ]
-  }
-}
-```
+- To view the logs for any particular container, use:
+  ```
+  docker-compose logs $CONTAINER_NAME
+  ```
+- [Optional] To run the basic CLI client, use:
+  ```
+  mvn exec:java -pl cli-client
+  ```
+- To view the frontend, navigate to http://localhost:1337.
 
-## Team
+### Team
 
-- [Ahmed Jouda](https://github.com/AhmedJouda2000) 
-- [Chee Guan (Jason) Tee](https://github.com/AmplifiedHuman)
-- Noor Bari
-- [Rajit Banerjee](https://github.com/rajitbanerjee/)
+- [Ahmed Jouda](https://github.com/AhmedJouda2000)
+- [Chee Guan (Jason) Tee](https://www.jasontcg.com)
+- [Noor Bari](https://github.com/noorb98)
+- [Rajit Banerjee](https://rajitbanerjee.com)
 
-## Acknowledgements
+### Acknowledgements
 
 - [Assoc. Prof. Rem Collier, UCD](https://people.ucd.ie/rem.collier)
-

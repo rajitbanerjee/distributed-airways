@@ -14,6 +14,14 @@ import org.springframework.stereotype.Component;
 public class QueryResolver implements GraphQLQueryResolver {
     private final FlightService flightService;
 
+    public List<String> sourceCities() {
+        return flightService.getSourceCities();
+    }
+
+    public List<String> destinationCities() {
+        return flightService.getDestinationCities();
+    }
+
     public List<Flight> flights(String date, String sourceCity, String destinationCity) {
         String dayOfWeek = "";
         try {

@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Bean;
 public class FlightsApplication {
 
     public static void main(String[] args) {
+        System.out.println("Starting airline service: Cathay Pacific");
         SpringApplication.run(FlightsApplication.class, args);
     }
 
@@ -30,9 +31,7 @@ public class FlightsApplication {
             try {
                 List<CathayFlight> flights = mapper.readValue(inputStream, typeReference);
                 flightService.save(flights);
-                System.out.println("Flights Saved!");
             } catch (IOException e) {
-                System.out.println("Unable to save flights: " + e.getMessage());
             }
         };
     }
