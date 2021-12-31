@@ -4,11 +4,9 @@ services:
   redis:
     image: redis:6.2-alpine
     container_name: redis
-
   mongodb:
     image: mongo:latest
     container_name: mongodb
-
   postgres:
     image: postgres:latest
     container_name: postgres
@@ -27,7 +25,6 @@ services:
       - DATABASE_PORT=6379
     depends_on:
       - redis
-
   cathay-pacific:
     build: cathay-pacific
     container_name: cathay-pacific
@@ -38,7 +35,6 @@ services:
       - SPRING_DATASOURCE_PASSWORD=postgres
     depends_on:
       - postgres
-
   emirates:
     build: emirates
     container_name: emirates
@@ -49,7 +45,6 @@ services:
       - DATABASE_PORT=27017
     depends_on:
       - mongodb
-
   ryan-air:
     build: ryan-air
     container_name: ryan-air
@@ -69,7 +64,11 @@ services:
       - "8080:8080"
     environment:
       - SERVER_PORT=8080
-
+    depends_on:
+      - american-airlines
+      - cathay-pacific
+      - emirates
+      - ryan-air
   ui:
     build:
       context: ui
@@ -79,3 +78,5 @@ services:
       - "1337:80"
     environment:
       - BROKER_PORT=8080
+    depends_on:
+      - broker
