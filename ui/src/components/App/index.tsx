@@ -25,8 +25,8 @@ const App: React.FC = (): JSX.Element => {
   useEffect(() => {
     // Store all possible source anddestination cities
     if (!sourceCityOptions || !destinationCityOptions) {
-      getSourceCityOptions().then((response) => setSourceCityOptions(response.cities));
-      getDestinationCityOptions().then((response) => setDestinationCityOptions(response.cities));
+      getSourceCityOptions().then((response) => setSourceCityOptions(response.sourceCities));
+      getDestinationCityOptions().then((response) => setDestinationCityOptions(response.destinationCities));
     }
 
     // Show flights

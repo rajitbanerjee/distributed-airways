@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GraphQLResponse {
+public class GraphQLResponseFlights {
     private Map<String, List<Flight>> data;
 }

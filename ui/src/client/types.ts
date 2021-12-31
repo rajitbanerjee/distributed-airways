@@ -1,6 +1,7 @@
 export interface GraphQLResponse {
+  sourceCities?: string[];
+  destinationCities?: string[];
   flights?: Flight[];
-  cities?: string[];
 }
 
 export interface Flight {

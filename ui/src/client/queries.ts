@@ -17,3 +17,15 @@ export const flightsByDateSourceCityAndDestinationCity = gql`
     }
   }
 `;
+
+export const sourceCities = gql`
+  query SourceCities {
+    sourceCities
+  }
+`;
+
+export const destinationCities = gql`
+  query DestinationCities {
+    destinationCities
+  }
+`;

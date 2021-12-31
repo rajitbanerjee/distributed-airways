@@ -54,23 +54,12 @@ const Card = ({ flight }: Props): JSX.Element => {
 };
 
 const badgeColorsMap = (category: string) => {
-  switch(category) {
-    // American Airlines
-    case "None": return "red";
-    case "Silver": return "blue";
-    case "Gold": return "yellow"; 
-    case "Platinum": return "green"
-    // Cathay Pacific and Emirates
-    case "Economy": return "green";
-    case "Business": return "blue";
-    case "First": return "red";
-    // Ryanair
-    case "Value": return "green";
-    case "Regular": return "blue";
-    case "Plus": return "red";
-    default: return "gray"
-  }
-}
+  if (["None", "First", "Plus"].includes(category)) return "red";
+  if (["Silver", "Business", "Regular"].includes(category)) return "blue";
+  if (["Platinum", "Economy", "Value"].includes(category)) return "green";
+  if (["Gold"].includes(category)) return "yellow";
+  return "gray";
+};
 
 const makePriceBadges = (price: number, category: string): JSX.Element => {
   return (

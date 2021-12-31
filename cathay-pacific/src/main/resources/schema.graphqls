@@ -13,5 +13,7 @@ type Flight {
 }
 
 type Query {
+    sourceCities: [String]
+    destinationCities: [String]
     flights(date: String, sourceCity: String, destinationCity: String): [Flight]
 }

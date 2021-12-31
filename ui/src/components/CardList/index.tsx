@@ -12,7 +12,7 @@ const CardList = ({ longDate, flights }: Props): JSX.Element => {
   return (
     <VStack>
       <Text color="grey" fontSize="14px">
-      {flights && flights.length > 0 ? longDate : "Please try a different search!"}
+        {flights && flights.length > 0 ? longDate : "Please try a different search!"}
       </Text>
       {flights ? flights.sort((a, b) => a.price[0] - b.price[0]).map(makeCard) : null}
     </VStack>

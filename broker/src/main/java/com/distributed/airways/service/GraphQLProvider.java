@@ -2,7 +2,6 @@ package com.distributed.airways.service;
 
 import static graphql.schema.idl.TypeRuntimeWiring.newTypeWiring;
 
-import com.distributed.airways.model.Flight;
 import com.distributed.airways.utils.FileIO;
 import graphql.GraphQL;
 import graphql.schema.DataFetcher;
@@ -12,7 +11,8 @@ import graphql.schema.idl.SchemaGenerator;
 import graphql.schema.idl.SchemaParser;
 import graphql.schema.idl.TypeDefinitionRegistry;
 import java.io.IOException;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -40,9 +40,12 @@ public class GraphQLProvider {
     }
 
     private RuntimeWiring buildWiring() throws IOException {
-        DataFetcher<List<Flight>> fetcher = service.getFlightsDataFetcher();
+        Map<String, DataFetcher> dataFetchersMap = new HashMap<>();
+        dataFetchersMap.put("sourceCities", service.getSourceCitiesDataFetcher());
+        dataFetchersMap.put("destinationCities", service.getDestinationCitiesDataFetcher());
+        dataFetchersMap.put("flights", service.getFlightsDataFetcher());
         return RuntimeWiring.newRuntimeWiring()
-                .type(newTypeWiring("Query").dataFetcher("flights", fetcher))
+                .type(newTypeWiring("Query").dataFetchers(dataFetchersMap))
                 .build();
     }
 
