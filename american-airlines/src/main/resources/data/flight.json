@@ -8,10 +8,17 @@
     "destinationCity": "Dublin",
     "sourceAirport": "JFK",
     "destinationAirport": "DUB",
-    "dayOfWeek": ["Tuesday", "Wednesday","Thursday","Friday", "Sunday", "Monday"],
-    "basePrice": 300.00
-},
-{
+    "dayOfWeek": [
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Sunday",
+      "Monday"
+    ],
+    "basePrice": 300.0
+  },
+  {
     "id": "AA-flight1R",
     "airline": "American Airlines",
     "flightNumber": ["AA6765"],
@@ -20,158 +27,238 @@
     "destinationCity": "New York",
     "sourceAirport": "DUB",
     "destinationAirport": "JFK",
-    "dayOfWeek": ["Tuesday", "Wednesday","Thursday","Friday", "Sunday", "Monday"],
-    "basePrice": 270.00
-},
-
-{
-  "id": "AA-flight2",
-  "airline": "American Airlines",
-  "flightNumber": ["AA8926"],
-  "time": ["09:00", "14:00"],
-  "sourceCity": "New York",
-  "destinationCity": "Hong Kong",
-  "sourceAirport": "JFK",
-  "destinationAirport": "HKG",
-  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-  "basePrice": 850.00
-},
-{
-  "id": "AA-flight2R",
-  "airline": "American Airlines",
-  "flightNumber": ["AA8916"],
-  "time": ["03:20", "06:00"],
-  "sourceCity": "Hong Kong",
-  "destinationCity": "New York",
-  "sourceAirport": "HKG",
-  "destinationAirport": "JFK",
-  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-  "basePrice": 900.00
-},
-
-{
-  "id": "AA-flight3",
-  "airline": "American Airlines",
-  "flightNumber": ["AA8931"],
-  "time": ["22:55", "06:10"],
-  "sourceCity": "San Francisco",
-  "destinationCity": "Hong Kong",
-  "sourceAirport": "SFO",
-  "destinationAirport": "HKG",
-  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-  "basePrice": 820.00
-},
-{
-  "id": "AA-flight3R",
-  "airline": "American Airlines",
-  "flightNumber": ["AA8930"],
-  "time": ["00:55", "21:10"],
-  "sourceCity": "Hong Kong",
-  "destinationCity": "San Francisco",
-  "sourceAirport": "HKG",
-  "destinationAirport": "SFO",
-  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-  "basePrice": 800.00
-},
-
-{
-  "id": "AA-flight4",
-  "airline": "American Airlines",
-  "flightNumber": ["AA4767"],
-  "time": ["15:10", "23:50"],
-  "sourceCity": "New York",
-  "destinationCity": "Vancouver",
-  "sourceAirport": "JFK",
-  "destinationAirport": "YVR",
-  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-  "basePrice": 250.00
-},
-{
-  "id": "AA-flight4R",
-  "airline": "American Airlines",
-  "flightNumber": ["AA7596"],
-  "time": ["17:30", "08:00"],
-  "sourceCity": "Vancouver",
-  "destinationCity": "New York",
-  "sourceAirport": "YVR",
-  "destinationAirport": "JFK",
-  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-  "basePrice": 200.00
-},
-
-{
-  "id": "AA-flight5",
-  "airline": "American Airlines",
-  "flightNumber": ["AA8881"],
-  "time": ["16:10", "18:35"],
-  "sourceCity": "San Francisco",
-  "destinationCity": "Dubai",
-  "sourceAirport": "SFO",
-  "destinationAirport": "DXB",
-  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-  "basePrice": 620.00
-},
-{
-  "id": "AA-flight5R",
-  "airline": "American Airlines",
-  "flightNumber": ["AA8882"],
-  "time": ["05:45", "10:10"],
-  "sourceCity": "Dubai",
-  "destinationCity": "San Francisco",
-  "sourceAirport": "DXB",
-  "destinationAirport": "SFO",
-  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-  "basePrice": 500.00
-},
-
-{
-  "id": "AA-flight6",
-  "airline": "American Airlines",
-  "flightNumber": ["AA8871"],
-  "time": ["21:15", "18:30"],
-  "sourceCity": "New York",
-  "destinationCity": "Dubai",
-  "sourceAirport": "JFK",
-  "destinationAirport": "DXB",
-  "dayOfWeek": ["Monday", "Tuesday", "Friday", "Saturday", "Sunday"],
-  "basePrice": 450.00
-},
-{
-  "id": "AA-flight6R",
-  "airline": "American Airlines",
-  "flightNumber": ["AA8872"],
-  "time": ["05:00", "11:00"],
-  "sourceCity": "Dubai",
-  "destinationCity": "New York",
-  "sourceAirport": "DXB",
-  "destinationAirport": "JFK",
-  "dayOfWeek": ["Monday", "Thursday", "Friday", "Saturday", "Sunday"],
-  "basePrice": 400.00
-},
-
-{
-  "id": "AA-flight7",
-  "airline": "American Airlines",
-  "flightNumber": ["AA9100"],
-  "time": ["08:00", "11:50"],
-  "sourceCity": "New York",
-  "destinationCity": "San Francisco",
-  "sourceAirport": "JFK",
-  "destinationAirport": "SFO",
-  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-  "basePrice": 250.00
-},
-{
-  "id": "AA-flight7R",
-  "airline": "American Airlines",
-  "flightNumber": ["AA234"],
-  "time": ["07:00", "15:30"],
-  "sourceCity": "San Francisco",
-  "destinationCity": "New York",
-  "sourceAirport": "SFO",
-  "destinationAirport": "JFK",
-  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-  "basePrice": 200.00
-}
-  
+    "dayOfWeek": [
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Sunday",
+      "Monday"
+    ],
+    "basePrice": 270.0
+  },
+  {
+    "id": "AA-flight2",
+    "airline": "American Airlines",
+    "flightNumber": ["AA8926"],
+    "time": ["09:00", "14:00"],
+    "sourceCity": "New York",
+    "destinationCity": "Hong Kong",
+    "sourceAirport": "JFK",
+    "destinationAirport": "HKG",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "basePrice": 850.0
+  },
+  {
+    "id": "AA-flight2R",
+    "airline": "American Airlines",
+    "flightNumber": ["AA8916"],
+    "time": ["03:20", "06:00"],
+    "sourceCity": "Hong Kong",
+    "destinationCity": "New York",
+    "sourceAirport": "HKG",
+    "destinationAirport": "JFK",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "basePrice": 900.0
+  },
+  {
+    "id": "AA-flight3",
+    "airline": "American Airlines",
+    "flightNumber": ["AA8931"],
+    "time": ["22:55", "06:10"],
+    "sourceCity": "San Francisco",
+    "destinationCity": "Hong Kong",
+    "sourceAirport": "SFO",
+    "destinationAirport": "HKG",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "basePrice": 820.0
+  },
+  {
+    "id": "AA-flight3R",
+    "airline": "American Airlines",
+    "flightNumber": ["AA8930"],
+    "time": ["00:55", "21:10"],
+    "sourceCity": "Hong Kong",
+    "destinationCity": "San Francisco",
+    "sourceAirport": "HKG",
+    "destinationAirport": "SFO",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "basePrice": 800.0
+  },
+  {
+    "id": "AA-flight4",
+    "airline": "American Airlines",
+    "flightNumber": ["AA4767"],
+    "time": ["15:10", "23:50"],
+    "sourceCity": "New York",
+    "destinationCity": "Vancouver",
+    "sourceAirport": "JFK",
+    "destinationAirport": "YVR",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "basePrice": 250.0
+  },
+  {
+    "id": "AA-flight4R",
+    "airline": "American Airlines",
+    "flightNumber": ["AA7596"],
+    "time": ["17:30", "08:00"],
+    "sourceCity": "Vancouver",
+    "destinationCity": "New York",
+    "sourceAirport": "YVR",
+    "destinationAirport": "JFK",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "basePrice": 200.0
+  },
+  {
+    "id": "AA-flight5",
+    "airline": "American Airlines",
+    "flightNumber": ["AA8881"],
+    "time": ["16:10", "18:35"],
+    "sourceCity": "San Francisco",
+    "destinationCity": "Dubai",
+    "sourceAirport": "SFO",
+    "destinationAirport": "DXB",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "basePrice": 620.0
+  },
+  {
+    "id": "AA-flight5R",
+    "airline": "American Airlines",
+    "flightNumber": ["AA8882"],
+    "time": ["05:45", "10:10"],
+    "sourceCity": "Dubai",
+    "destinationCity": "San Francisco",
+    "sourceAirport": "DXB",
+    "destinationAirport": "SFO",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "basePrice": 500.0
+  },
+  {
+    "id": "AA-flight6",
+    "airline": "American Airlines",
+    "flightNumber": ["AA8871"],
+    "time": ["21:15", "18:30"],
+    "sourceCity": "New York",
+    "destinationCity": "Dubai",
+    "sourceAirport": "JFK",
+    "destinationAirport": "DXB",
+    "dayOfWeek": ["Monday", "Tuesday", "Friday", "Saturday", "Sunday"],
+    "basePrice": 450.0
+  },
+  {
+    "id": "AA-flight6R",
+    "airline": "American Airlines",
+    "flightNumber": ["AA8872"],
+    "time": ["05:00", "11:00"],
+    "sourceCity": "Dubai",
+    "destinationCity": "New York",
+    "sourceAirport": "DXB",
+    "destinationAirport": "JFK",
+    "dayOfWeek": ["Monday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "basePrice": 400.0
+  },
+  {
+    "id": "AA-flight7",
+    "airline": "American Airlines",
+    "flightNumber": ["AA9100"],
+    "time": ["08:00", "11:50"],
+    "sourceCity": "New York",
+    "destinationCity": "San Francisco",
+    "sourceAirport": "JFK",
+    "destinationAirport": "SFO",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "basePrice": 250.0
+  },
+  {
+    "id": "AA-flight7R",
+    "airline": "American Airlines",
+    "flightNumber": ["AA234"],
+    "time": ["07:00", "15:30"],
+    "sourceCity": "San Francisco",
+    "destinationCity": "New York",
+    "sourceAirport": "SFO",
+    "destinationAirport": "JFK",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "basePrice": 200.0
+  }
 ]
