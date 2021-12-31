@@ -28,7 +28,7 @@ const Card = ({ flight }: Props): JSX.Element => {
       }}
     >
       <HStack spacing={10}>
-        <img src={logo} className="logo" />
+        <img src={logo} className="logo" alt="Airline logo" />
 
         <VStack spacing={-1}>
           <Text fontSize="large">{airline}</Text>

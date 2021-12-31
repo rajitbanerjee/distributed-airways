@@ -33,13 +33,16 @@ const SearchBar = ({
   return (
     <HStack flexWrap="wrap">
       <CustomDatePicker date={date} setDate={setDate}></CustomDatePicker>
+
       <CityInput isSourceCity={true} cityOptions={sourceCityOptions} city={sourceCity} setCity={setSourceCity} />
+
       <CityInput
         isSourceCity={false}
         cityOptions={destinationCityOptions}
         city={destinationCity}
         setCity={setDestinationCity}
       />
+
       <Button
         isLoading={isLoading}
         isDisabled={!date || !sourceCity || !destinationCity}
@@ -49,6 +52,7 @@ const SearchBar = ({
       >
         Search
       </Button>
+
       <Button
         isDisabled={!date && !sourceCity && !destinationCity}
         variant="solid"

@@ -27,10 +27,7 @@
   ```
   mvn exec:java -pl cli-client
   ```
-- To view the frontend, navigate to:
-  ```
-  http://localhost:1337
-  ```
+- To view the frontend, navigate to http://localhost:1337.
 
 ## Team
 

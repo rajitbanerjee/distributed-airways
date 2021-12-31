@@ -8,7 +8,7 @@ interface Props {
 }
 
 // https://reactdatepicker.com
-const CustomDatePicker = ({ date, setDate }: Props) => {
+const CustomDatePicker = ({ date, setDate }: Props): JSX.Element => {
   return (
     <div>
       <DatePicker

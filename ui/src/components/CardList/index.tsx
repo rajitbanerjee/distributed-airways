@@ -8,19 +8,18 @@ interface Props {
 }
 
 const CardList = ({ longDate, flights }: Props): JSX.Element => {
-  // Order flights by ascending order of price
+  // Order flights by price (ascending)
   return (
     <VStack>
       <Text color="grey" fontSize="14px">
-        {flights && flights.length > 0 ? longDate : "Please try a different search!"}
+        {flights && flights.length > 0 ? longDate : "Please try changing the search parameters!"}
       </Text>
-      {flights ? flights.sort((a, b) => a.price[0] - b.price[0]).map(makeCard) : null}
+      {flights ? sortByPrice(flights).map(makeCard) : null}
     </VStack>
   );
 };
 
-const makeCard = (flight: Flight): JSX.Element => {
-  return <Card flight={flight} />;
-};
+const sortByPrice = (flights: Flight[]): Flight[] => flights.sort((a, b) => a.price[0] - b.price[0]);
+const makeCard = (flight: Flight): JSX.Element => <Card flight={flight} />;
 
 export default CardList;

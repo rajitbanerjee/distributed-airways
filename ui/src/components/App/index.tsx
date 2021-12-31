@@ -12,7 +12,7 @@ const App: React.FC = (): JSX.Element => {
   const [sourceCity, setSourceCity] = useState<string | undefined>(undefined);
   const [destinationCity, setDestinationCity] = useState<string | undefined>(undefined);
 
-  // Flights
+  // Broker responses state
   const [sourceCityOptions, setSourceCityOptions] = useState<string[] | undefined>(undefined);
   const [destinationCityOptions, setDestinationCityOptions] = useState<string[] | undefined>(undefined);
   const [flights, setFlights] = useState<Flight[] | undefined>(undefined);
@@ -23,7 +23,7 @@ const App: React.FC = (): JSX.Element => {
   const [clear, setClear] = useState(false);
 
   useEffect(() => {
-    // Store all possible source anddestination cities
+    // Store all possible source and destination cities
     if (!sourceCityOptions || !destinationCityOptions) {
       getSourceCityOptions().then((response) => setSourceCityOptions(response.sourceCities));
       getDestinationCityOptions().then((response) => setDestinationCityOptions(response.destinationCities));
@@ -32,7 +32,7 @@ const App: React.FC = (): JSX.Element => {
     // Show flights
     if (submitForm && date && sourceCity && destinationCity) {
       setLoading(true);
-      getFlights({ date: dateToYMD(date!), sourceCity: sourceCity!, destinationCity: destinationCity! })
+      getFlights({ date: dateToYMD(date), sourceCity, destinationCity })
         .then((response) => setFlights(response.flights))
         .finally(() => {
           setLoading(false);
@@ -50,12 +50,10 @@ const App: React.FC = (): JSX.Element => {
     }
   }, [sourceCityOptions, destinationCityOptions, submitForm, date, sourceCity, destinationCity, clear]);
 
-  const logo = "/logo.png";
-
   return (
     <VStack color="black" bgColor="white" minH="100vh" textAlign="center">
       <VStack paddingTop="10em" paddingBottom="10em" spacing={7}>
-        <img src={logo} alt="logo" width="100" box-shadow="50px" />
+        <img src="/logo.png" alt="Team logo" width="100" box-shadow="50px" />
 
         <Heading fontSize="lg" color="#606060">
           Distributed Airways
