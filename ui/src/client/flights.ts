@@ -2,7 +2,8 @@ import { request } from "graphql-request";
 import * as queries from "./queries";
 import { GraphQLResponse } from "./types";
 
-const BROKER_ENDPOINT = "http://localhost:8080/graphql";
+const BROKER_PORT = process.env.BROKER_PORT || 8080;
+const BROKER_ENDPOINT = "http://localhost:" + BROKER_PORT + "/graphql";
 
 const makeRequest = async (query: string, variables?: { [key: string]: any }): Promise<GraphQLResponse> => {
   return request(BROKER_ENDPOINT, query, variables);

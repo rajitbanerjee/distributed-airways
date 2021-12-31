@@ -17,17 +17,6 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
 
-
-  # central
-  broker:
-    build: broker
-    container_name: broker
-    ports: 
-      - "8080:8080"
-    environment:
-      - SERVER_PORT=8080
-
-
   # airline services
   american-airlines:
     build: american-airlines
@@ -71,3 +60,22 @@ services:
       - DATABASE_PORT=27017
     depends_on:
       - mongodb
+
+  # central
+  broker:
+    build: broker
+    container_name: broker
+    ports:
+      - "8080:8080"
+    environment:
+      - SERVER_PORT=8080
+
+  ui:
+    build:
+      context: ui
+      dockerfile: Dockerfile.prod
+    container_name: ui
+    ports:
+      - "1337:80"
+    environment:
+      - BROKER_PORT=8080
