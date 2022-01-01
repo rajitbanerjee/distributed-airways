@@ -26,27 +26,27 @@ public class BrokerService {
     private final Environment environment;
     private final RestTemplate restTemplate = new RestTemplate();
 
-    public DataFetcher<List<String>> getSourceCitiesDataFetcher() {
-        return dataFetchingEnvironment -> {
-            return getCitiesFromAirlines(Constants.SOURCE_CITIES_QUERY, "sourceCities");
-        };
-    }
-
-    public DataFetcher<List<String>> getDestinationCitiesDataFetcher() {
-        return dataFetchingEnvironment -> {
-            return getCitiesFromAirlines(Constants.DESTINATION_CITIES_QUERY, "destinationCities");
-        };
-    }
-
     @Value("${SERVICES_PORT:80}")
     private String servicesPort;
 
-    public DataFetcher<List<String>> getDestinationCitiesDataFetcher() {
-        return dataFetchingEnvironment -> {
-            return getCitiesFromAirlines(Constants.DESTINATION_CITIES_QUERY, "destinationCities");
-        };
+    public DataFetcher<List<String>> getSourceCitiesDataFetcher() {
+        return dataFetchingEnvironment ->
+                getCitiesFromAirlines(Constants.SOURCE_CITIES_QUERY, "sourceCities");
     }
 
+    public DataFetcher<List<String>> getDestinationCitiesDataFetcher() {
+        return dataFetchingEnvironment ->
+                getCitiesFromAirlines(Constants.DESTINATION_CITIES_QUERY, "destinationCities");
+    }
+
+    public DataFetcher<List<Flight>> getFlightsDataFetcher() {
+        return dataFetchingEnvironment -> {
+            String date = dataFetchingEnvironment.getArgument("date");
+            String sourceCity = dataFetchingEnvironment.getArgument("sourceCity");
+            String destinationCity = dataFetchingEnvironment.getArgument("destinationCity");
+            return getFlightsFromAirlines(date, sourceCity, destinationCity);
+        };
+    }
 
     private List<String> getCitiesFromAirlines(String query, String type) {
         GraphQLQuery body = new GraphQLQuery(query, null);
@@ -57,6 +57,7 @@ public class BrokerService {
         for (String url : getServices()) {
             GraphQLResponseCities response =
                     restTemplate.postForObject(url, request, GraphQLResponseCities.class);
+            assert response != null;
             List<String> dataCities = response.getData().get(type);
             for (String city : dataCities) {
                 if (!cities.contains(city)) {
@@ -76,8 +77,8 @@ public class BrokerService {
         HttpEntity<GraphQLQuery> request = new HttpEntity<>(body);
         List<Flight> flights = new ArrayList<>();
         for (String url : getServices()) {
-            GraphQLResponse response =
-                    restTemplate.postForObject(url, request, GraphQLResponse.class);
+            GraphQLResponseFlights response =
+                    restTemplate.postForObject(url, request, GraphQLResponseFlights.class);
             assert response != null;
             List<Flight> dataFlights = response.getData().get("flights");
             flights.addAll(dataFlights);
