@@ -35,27 +35,29 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
-
-        <!-- GraphQL dependencies -->
-        <dependency>
-            <!-- Loads and powers our GraphQL schema -->
-            <groupId>com.graphql-java</groupId>
-            <artifactId>graphql-java-tools</artifactId>
-            <version>4.3.0</version>
-        </dependency>
-        <dependency>
-            <!-- generates GraphQL schema from data model classes -->
-            <groupId>com.introproventures</groupId>
-            <artifactId>graphql-jpa-query-schema</artifactId>
-            <version>0.3.27</version>
-            <type>pom</type>
-        </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.2.18</version>
         </dependency>
 
+        <!-- GraphQL dependencies -->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-tools</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.introproventures</groupId>
+            <artifactId>graphql-jpa-query-schema</artifactId>
+            <version>0.3.27</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphiql-spring-boot-starter</artifactId>
+            <version>4.0.0</version>
+        </dependency>
 
         <!-- JPA dependencies -->
         <dependency>
@@ -63,7 +65,7 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- spring boot dependencies -->
+        <!-- Spring Boot dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -77,11 +79,7 @@
             <artifactId>graphql-spring-boot-starter</artifactId>
             <version>4.0.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.graphql-java</groupId>
-            <artifactId>graphiql-spring-boot-starter</artifactId>
-            <version>4.0.0</version>
-        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

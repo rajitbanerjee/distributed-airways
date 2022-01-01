@@ -2,7 +2,8 @@ package com.distributed.airways.service;
 
 import com.distributed.airways.graphql.Constants;
 import com.distributed.airways.graphql.GraphQLQuery;
-import com.distributed.airways.graphql.GraphQLResponse;
+import com.distributed.airways.graphql.GraphQLResponseCities;
+import com.distributed.airways.graphql.GraphQLResponseFlights;
 import com.distributed.airways.model.Flight;
 import com.google.common.collect.ImmutableMap;
 import graphql.schema.DataFetcher;
@@ -23,22 +24,51 @@ import org.springframework.web.client.RestTemplate;
 public class BrokerService {
     private final DiscoveryClient discoveryClient;
     private final Environment environment;
+    private final RestTemplate restTemplate = new RestTemplate();
+
+    public DataFetcher<List<String>> getSourceCitiesDataFetcher() {
+        return dataFetchingEnvironment -> {
+            return getCitiesFromAirlines(Constants.SOURCE_CITIES_QUERY, "sourceCities");
+        };
+    }
+
+    public DataFetcher<List<String>> getDestinationCitiesDataFetcher() {
+        return dataFetchingEnvironment -> {
+            return getCitiesFromAirlines(Constants.DESTINATION_CITIES_QUERY, "destinationCities");
+        };
+    }
 
     @Value("${SERVICES_PORT:80}")
     private String servicesPort;
 
-    public DataFetcher<List<Flight>> getFlightsDataFetcher() {
+    public DataFetcher<List<String>> getDestinationCitiesDataFetcher() {
         return dataFetchingEnvironment -> {
-            String date = dataFetchingEnvironment.getArgument("date");
-            String sourceCity = dataFetchingEnvironment.getArgument("sourceCity");
-            String destinationCity = dataFetchingEnvironment.getArgument("destinationCity");
-            return getFlightsFromAirlines(date, sourceCity, destinationCity);
+            return getCitiesFromAirlines(Constants.DESTINATION_CITIES_QUERY, "destinationCities");
         };
+    }
+
+
+    private List<String> getCitiesFromAirlines(String query, String type) {
+        GraphQLQuery body = new GraphQLQuery(query, null);
+        HttpEntity<GraphQLQuery> request = new HttpEntity<>(body);
+        List<String> cities = new ArrayList<>();
+
+        // Retrieve cities from each individual airline service
+        for (String url : getServices()) {
+            GraphQLResponseCities response =
+                    restTemplate.postForObject(url, request, GraphQLResponseCities.class);
+            List<String> dataCities = response.getData().get(type);
+            for (String city : dataCities) {
+                if (!cities.contains(city)) {
+                    cities.add(city);
+                }
+            }
+        }
+        return cities;
     }
 
     private List<Flight> getFlightsFromAirlines(
             String date, String sourceCity, String destinationCity) {
-        RestTemplate restTemplate = new RestTemplate();
         Map<String, String> variables =
                 ImmutableMap.of(
                         "date", date, "sourceCity", sourceCity, "destinationCity", destinationCity);

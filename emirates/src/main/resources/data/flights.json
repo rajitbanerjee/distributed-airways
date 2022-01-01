@@ -1,28 +1,296 @@
 [
-    {
-        "id": "flight1",
-        "airline": "Emirates",
-        "flightNumber": ["EK162", "EK570"],
-        "time": ["12:55", "00:30", "02:00", "07:40"],
-        "sourceCity": "Dublin",
-        "destinationCity": "Kolkata",
-        "sourceAirport": "DUB",
-        "destinationAirport": "CCU",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "price": [500.00],
-        "category": ["Economy", "Business", "First"]
-    },
-    {
-        "id": "flight2",
-        "airline": "Emirates",
-        "flightNumber": ["EK162", "EK408"],
-        "time": ["12:55", "00:30", "03:00", "23:20"],
-        "sourceCity": "Dublin",
-        "destinationCity": "Melbourne",
-        "sourceAirport": "DUB",
-        "destinationAirport": "MEL",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "price": [1500.00],
-        "category": ["Economy", "Business", "First"]
-    }
+  {
+    "id": "EK-flight1",
+    "airline": "Emirates",
+    "flightNumber": ["EK162", "EK570"],
+    "time": ["12:55", "00:30", "02:00", "07:40"],
+    "sourceCity": "Dublin",
+    "destinationCity": "Kolkata",
+    "sourceAirport": "DUB",
+    "destinationAirport": "CCU",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "price": [500.0],
+    "category": ["Economy", "Business", "First"]
+  },
+  {
+    "id": "EK-flight1R",
+    "airline": "Emirates",
+    "flightNumber": ["EK571", "EK161"],
+    "time": ["08:55", "12:50", "07:05", "11:20"],
+    "sourceCity": "Kolkata",
+    "destinationCity": "Dublin",
+    "sourceAirport": "CCU",
+    "destinationAirport": "DUB",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "price": [700.0],
+    "category": ["Economy", "Business", "First"]
+  },
+  {
+    "id": "EK-flight2",
+    "airline": "Emirates",
+    "flightNumber": ["EK162", "EK408"],
+    "time": ["12:55", "00:30", "03:00", "23:20"],
+    "sourceCity": "Dublin",
+    "destinationCity": "Melbourne",
+    "sourceAirport": "DUB",
+    "destinationAirport": "MEL",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "price": [1500.0],
+    "category": ["Economy", "Business", "First"]
+  },
+  {
+    "id": "EK-flight2R",
+    "airline": "Emirates",
+    "flightNumber": ["EK409", "EK161"],
+    "time": ["22:30", "05:40", "11:10", "15:25"],
+    "sourceCity": "Melbourne",
+    "destinationCity": "Dublin",
+    "sourceAirport": "MEL",
+    "destinationAirport": "DUB",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "price": [1200.0],
+    "category": ["Economy", "Business", "First"]
+  },
+  {
+    "id": "EK-flight3",
+    "airline": "Emirates",
+    "flightNumber": ["EK162"],
+    "time": ["12:55", "00:30"],
+    "sourceCity": "Dublin",
+    "destinationCity": "Dubai",
+    "sourceAirport": "DUB",
+    "destinationAirport": "DXB",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "price": [250.0],
+    "category": ["Economy", "Business", "First"]
+  },
+  {
+    "id": "EK-flight3R",
+    "airline": "Emirates",
+    "flightNumber": ["EK161"],
+    "time": ["07:05", "11:20"],
+    "sourceCity": "Dubai",
+    "destinationCity": "Dublin",
+    "sourceAirport": "DXB",
+    "destinationAirport": "DUB",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "price": [300.0],
+    "category": ["Economy", "Business", "First"]
+  },
+  {
+    "id": "EK-flight4",
+    "airline": "Emirates",
+    "flightNumber": ["EK201"],
+    "time": ["08:30", "13:55"],
+    "sourceCity": "Dubai",
+    "destinationCity": "New York",
+    "sourceAirport": "DXB",
+    "destinationAirport": "JFK",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "price": [350.0],
+    "category": ["Economy", "Business", "First"]
+  },
+  {
+    "id": "EK-flight4R",
+    "airline": "Emirates",
+    "flightNumber": ["EK202"],
+    "time": ["22:20", "19:45"],
+    "sourceCity": "New York",
+    "destinationCity": "Dubai",
+    "sourceAirport": "JFK",
+    "destinationAirport": "DXB",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "price": [300.0],
+    "category": ["Economy", "Business", "First"]
+  },
+  {
+    "id": "EK-flight5",
+    "airline": "Emirates",
+    "flightNumber": ["EK225"],
+    "time": ["08:45", "12:45"],
+    "sourceCity": "Dubai",
+    "destinationCity": "San Francisco",
+    "sourceAirport": "DXB",
+    "destinationAirport": "SFO",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "price": [450.0],
+    "category": ["Economy", "Business", "First"]
+  },
+  {
+    "id": "EK-flight5R",
+    "airline": "Emirates",
+    "flightNumber": ["EK226"],
+    "time": ["15:40", "19:25"],
+    "sourceCity": "San Francisco",
+    "destinationCity": "Dubai",
+    "sourceAirport": "SFO",
+    "destinationAirport": "DXB",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "price": [500.0],
+    "category": ["Economy", "Business", "First"]
+  },
+  {
+    "id": "EK-flight6",
+    "airline": "Emirates",
+    "flightNumber": ["EK372", "EK384"],
+    "time": ["10:05", "19:15", "13:45", "17:40"],
+    "sourceCity": "Dubai",
+    "destinationCity": "Hong Kong",
+    "sourceAirport": "DXB",
+    "destinationAirport": "HKG",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "price": [500.0],
+    "category": ["Economy", "Business", "First"]
+  },
+  {
+    "id": "EK-flight6R",
+    "airline": "Emirates",
+    "flightNumber": ["EK385", "EK375"],
+    "time": ["21:00", "23:15", "09:30", "13:15"],
+    "sourceCity": "Hong Kong",
+    "destinationCity": "Dubai",
+    "sourceAirport": "HKG",
+    "destinationAirport": "DXB",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "price": [400.0],
+    "category": ["Economy", "Business", "First"]
+  },
+  {
+    "id": "EK-flight7",
+    "airline": "Emirates",
+    "flightNumber": ["EK354"],
+    "time": ["03:15", "14:40"],
+    "sourceCity": "Dubai",
+    "destinationCity": "Singapore",
+    "sourceAirport": "DXB",
+    "destinationAirport": "SIN",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "price": [290.0],
+    "category": ["Economy", "Business", "First"]
+  },
+  {
+    "id": "EK-flight7R",
+    "airline": "Emirates",
+    "flightNumber": ["EK353"],
+    "time": ["00:30", "04:10"],
+    "sourceCity": "Singapore",
+    "destinationCity": "Dubai",
+    "sourceAirport": "SIN",
+    "destinationAirport": "DXB",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "price": [310.0],
+    "category": ["Economy", "Business", "First"]
+  }
 ]

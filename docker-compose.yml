@@ -4,11 +4,9 @@ services:
   redis:
     image: redis:6.2-alpine
     container_name: redis
-
   mongodb:
     image: mongo:latest
     container_name: mongodb
-
   postgres:
     image: postgres:latest
     container_name: postgres
@@ -16,17 +14,6 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
-
-
-  # central
-  broker:
-    build: broker
-    container_name: broker
-    ports: 
-      - "8080:8080"
-    environment:
-      - SERVER_PORT=8080
-
 
   # airline services
   american-airlines:
@@ -38,7 +25,6 @@ services:
       - DATABASE_PORT=6379
     depends_on:
       - redis
-
   cathay-pacific:
     build: cathay-pacific
     container_name: cathay-pacific
@@ -49,7 +35,6 @@ services:
       - SPRING_DATASOURCE_PASSWORD=postgres
     depends_on:
       - postgres
-
   emirates:
     build: emirates
     container_name: emirates
@@ -60,12 +45,38 @@ services:
       - DATABASE_PORT=27017
     depends_on:
       - mongodb
+  ryan-air:
+    build: ryan-air
+    container_name: ryan-air
+    environment:
+      - SERVER_PORT=8084
+      - DATABASE_NAME=ryanair_flights
+      - DATABASE_HOST=mongodb
+      - DATABASE_PORT=27017
+    depends_on:
+      - mongodb
 
-  # ryanair:
-  #   build: ryanair
-  #   container_name: ryanair
-  #   ports:
-  #     - "8084:8084"
-
-
-
+  # central
+  broker:
+    build: broker
+    container_name: broker
+    ports:
+      - "8080:8080"
+    environment:
+      - SERVER_PORT=8080
+    depends_on:
+      - american-airlines
+      - cathay-pacific
+      - emirates
+      - ryan-air
+  ui:
+    build:
+      context: ui
+      dockerfile: Dockerfile.prod
+    container_name: ui
+    ports:
+      - "1337:80"
+    environment:
+      - BROKER_PORT=8080
+    depends_on:
+      - broker

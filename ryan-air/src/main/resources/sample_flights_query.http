@@ -1,0 +1,21 @@
+POST http://localhost:8084/graphql
+Content-Type: application/graphql
+
+# IMP. Query argument is yyyy-MM-dd date, but response is dayOfWeek
+
+{
+  flights(date: "2021-12-22", sourceCity: "Dublin", destinationCity: "London") { 
+    id 
+    airline
+    flightNumber
+    time
+    sourceCity
+    destinationCity
+    sourceAirport
+    destinationAirport
+    dayOfWeek
+    price
+    category
+  }
+}
+

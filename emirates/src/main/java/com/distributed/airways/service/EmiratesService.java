@@ -8,6 +8,7 @@ import graphql.schema.DataFetcher;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,6 +17,23 @@ public class EmiratesService {
     private List<EmiratesFlight> flights;
     private static final Map<String, Integer> TICKET_CLASS_PREMIUMS =
             ImmutableMap.of("Economy", 1, "Business", 5, "First", 8);
+
+    public DataFetcher<List<String>> getSourceCitiesDataFetcher(FlightRepository flightRepository) {
+        return dataFetchingEnvironment -> {
+            return flightRepository.findAll().stream()
+                    .map(flight -> flight.getSourceCity())
+                    .collect(Collectors.toList());
+        };
+    }
+
+    public DataFetcher<List<String>> getDestinationCitiesDataFetcher(
+            FlightRepository flightRepository) {
+        return dataFetchingEnvironment -> {
+            return flightRepository.findAll().stream()
+                    .map(flight -> flight.getDestinationCity())
+                    .collect(Collectors.toList());
+        };
+    }
 
     public DataFetcher<List<EmiratesFlight>> getFlightsDataFetcher(
             FlightRepository flightRepository) throws IOException {
