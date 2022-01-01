@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cathay-pacific-service
+spec:
+  # change type to LoadBalancing to expose service for testing
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8082
+  selector:
+    app: cathay-pacific-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cathay-pacific-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cathay-pacific-service
+  template:
+    metadata:
+      labels:
+        app: cathay-pacific-service
+    spec:
+      containers:
+        - name: cathay-pacific-service
+          image: distributedairways/cathay-pacific:latest
+          # Always pull because latest tag is constant
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8082
+          env:
+            - name: SERVER_PORT
+              value: "8082"
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://cathay-pacific-postgres:5432/postgres
+            - name: SPRING_DATASOURCE_USERNAME
+              value: postgres
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: postgres

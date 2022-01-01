@@ -1,0 +1,84 @@
+# Persistent Shared Volume Claim
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cathay-pacific-postgres
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100M
+---
+# Persistent Shared Volume
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: cathay-pacific-postgres
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 100M
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/cathay-pacific-postgres"
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: cathay-pacific-postgres
+  labels:
+    app: postgres
+    airline: cathay-pacific
+spec:
+  ports:
+    - port: 5432
+      targetPort: 5432
+  selector:
+    app: postgres
+    airline: cathay-pacific
+---
+# Deployment pod
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cathay-pacific-postgres
+  labels:
+    app: postgres
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+      airline: cathay-pacific
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+        airline: cathay-pacific
+    spec:
+      containers:
+        - name: master
+          image: postgres:latest
+          volumeMounts:
+            - mountPath: /var/lib/postgres/cathay
+              name: cathay-pacific-postgres
+          resources:
+            requests:
+              memory: 100M
+          ports:
+            - containerPort: 6379
+          env:
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_PASSWORD
+              value: "postgres"
+            - name: POSTGRES_DB
+              value: "postgres"
+      volumes:
+        - name: cathay-pacific-postgres
+          persistentVolumeClaim:
+            claimName: cathay-pacific-postgres

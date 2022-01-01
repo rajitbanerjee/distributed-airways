@@ -1,0 +1,77 @@
+# Persistent Shared Volume Claim
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: emirates-mongo
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100M
+---
+# Persistent Shared Volume
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: emirates-mongo
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 100M
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/mongo_data"
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: emirates-mongo
+  labels:
+    app: mongo
+    airline: emirates
+spec:
+  ports:
+    - port: 27017
+      targetPort: 27017
+  selector:
+    app: mongo
+    airline: emirates
+---
+# Deployment pod
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emirates-mongo
+  labels:
+    app: mongo
+spec:
+  selector:
+    matchLabels:
+      app: mongo
+      airline: emirates
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mongo
+        airline: emirates
+    spec:
+      containers:
+        - name: master
+          image: mongo:latest
+          volumeMounts:
+            - mountPath: /data/db
+              name: emirates-mongo
+          resources:
+            requests:
+              memory: 100M
+          ports:
+            - containerPort: 27017
+      volumes:
+        - name: emirates-mongo
+          persistentVolumeClaim:
+            claimName: emirates-mongo
