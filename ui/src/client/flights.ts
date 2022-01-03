@@ -2,14 +2,10 @@ import { request } from "graphql-request";
 import * as queries from "./queries";
 import { GraphQLResponse } from "./types";
 
+const BROKER_HOST = process.env.REACT_APP_BROKER_HOST || "localhost";
 const BROKER_PORT = process.env.REACT_APP_BROKER_PORT || 80;
-const BROKER_HOST = process.env.REACT_APP_BROKER_HOST || 'localhost';
-let path = '';
-if (process.env.REACT_APP_ENVIRONMENT !== 'docker-compose') {
-  path = 'api/';
-}
-
-const BROKER_ENDPOINT = `http://${BROKER_HOST}:${BROKER_PORT}/${path}graphql`;
+const PATH = process.env.REACT_APP_ENVIRONMENT === "docker-compose" ? "" : "api/";
+const BROKER_ENDPOINT = `http://${BROKER_HOST}:${BROKER_PORT}/${PATH}graphql`;
 
 const makeRequest = async (query: string, variables?: { [key: string]: any }): Promise<GraphQLResponse> => {
   return request(BROKER_ENDPOINT, query, variables);

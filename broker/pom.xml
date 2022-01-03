@@ -76,7 +76,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- k8s service discover -->
+        <!-- k8s service discovery -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-kubernetes-fabric8-all</artifactId>

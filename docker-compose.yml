@@ -74,9 +74,8 @@ services:
       context: ui
       args:
         - ENVIRONMENT=docker-compose
-        - BROKER_PORT=8080
         - BROKER_HOST=localhost
-
+        - BROKER_PORT=8080
     container_name: ui
     ports:
       - "1337:80"
