@@ -4,12 +4,15 @@ import com.distributed.airways.model.EmiratesFlight;
 import com.distributed.airways.repository.FlightRepository;
 import com.distributed.airways.utils.DateFormatter;
 import com.google.common.collect.ImmutableMap;
+
 import graphql.schema.DataFetcher;
+
+import org.springframework.stereotype.Service;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import org.springframework.stereotype.Service;
 
 @Service
 public class EmiratesService {
@@ -44,16 +47,9 @@ public class EmiratesService {
             String dayOfWeek = DateFormatter.dateToDayOfWeek(date);
 
             flights = flightRepository.findFlights(dayOfWeek, sourceCity, destinationCity);
-            updateTicketPrices();
+            applyTicketClassPremiums();
             return flights;
         };
-    }
-
-    private void updateTicketPrices() {
-        applyTicketClassPremiums();
-        // TODO? using utils from core here, or just post-processing in broker?
-        // applyWeekendPremiums();
-        // applySeasonalPremiums();
     }
 
     private void applyTicketClassPremiums() {
