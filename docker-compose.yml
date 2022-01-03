@@ -72,11 +72,13 @@ services:
   ui:
     build:
       context: ui
-      dockerfile: Dockerfile.prod
+      args:
+        - ENVIRONMENT=docker-compose
+        - BROKER_PORT=8080
+        - BROKER_HOST=localhost
+
     container_name: ui
     ports:
       - "1337:80"
-    environment:
-      - BROKER_PORT=8080
     depends_on:
       - broker

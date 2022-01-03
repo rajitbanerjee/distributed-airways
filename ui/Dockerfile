@@ -2,6 +2,15 @@
 FROM node:13.12.0-alpine as build
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
+# Build args
+ARG BROKER_PORT
+ARG BROKER_HOST
+ARG ENVIRONMENT
+# Environment variables
+ENV REACT_APP_BROKER_PORT $BROKER_PORT
+ENV REACT_APP_BROKER_HOST $BROKER_HOST
+ENV REACT_APP_ENVIRONMENT $ENVIRONMENT
+
 COPY package.json ./
 COPY package-lock.json ./
 RUN npm ci --silent
