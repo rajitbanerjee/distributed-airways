@@ -1,5 +1,7 @@
 package com.distributed.airways.service;
 
+import static graphql.schema.idl.TypeRuntimeWiring.newTypeWiring;
+
 import com.distributed.airways.utils.FileIO;
 import graphql.GraphQL;
 import graphql.schema.DataFetcher;
@@ -8,16 +10,13 @@ import graphql.schema.idl.RuntimeWiring;
 import graphql.schema.idl.SchemaGenerator;
 import graphql.schema.idl.SchemaParser;
 import graphql.schema.idl.TypeDefinitionRegistry;
-import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import static graphql.schema.idl.TypeRuntimeWiring.newTypeWiring;
+import javax.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
@@ -44,7 +43,9 @@ public class GraphQLProvider {
         dataFetchersMap.put("sourceCities", service.getSourceCitiesDataFetcher());
         dataFetchersMap.put("destinationCities", service.getDestinationCitiesDataFetcher());
         dataFetchersMap.put("flights", service.getFlightsDataFetcher());
-        return RuntimeWiring.newRuntimeWiring().type(newTypeWiring("Query").dataFetchers(dataFetchersMap)).build();
+        return RuntimeWiring.newRuntimeWiring()
+                .type(newTypeWiring("Query").dataFetchers(dataFetchersMap))
+                .build();
     }
 
     @Bean

@@ -91,7 +91,6 @@ public class BrokerService {
         List<String> services = new ArrayList<>();
         List<String> activeProfiles = Arrays.asList(environment.getActiveProfiles());
         if (activeProfiles.contains("kubernetes")) {
-            System.out.println(Arrays.toString(environment.getActiveProfiles()));
             for (String service : discoveryClient.getServices()) {
                 if (service.endsWith("service")) {
                     services.add(String.format("http://%s:%s/graphql", service, servicesPort));
