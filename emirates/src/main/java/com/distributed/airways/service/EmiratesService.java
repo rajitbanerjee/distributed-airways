@@ -4,15 +4,12 @@ import com.distributed.airways.model.EmiratesFlight;
 import com.distributed.airways.repository.FlightRepository;
 import com.distributed.airways.utils.DateFormatter;
 import com.google.common.collect.ImmutableMap;
-
 import graphql.schema.DataFetcher;
-
-import org.springframework.stereotype.Service;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Service;
 
 @Service
 public class EmiratesService {

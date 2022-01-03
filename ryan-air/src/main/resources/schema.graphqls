@@ -7,6 +7,8 @@ type Flight {
     destinationCity: String
     sourceAirport: String
     destinationAirport: String
+    transitCity: String
+    transitAirport: String
     dayOfWeek: [String]
     price: [Float]
     category: [String]

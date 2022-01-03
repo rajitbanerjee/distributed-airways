@@ -21,6 +21,8 @@ public class Flight implements Serializable {
     @Indexed private String destinationCity;
     private String sourceAirport;
     private String destinationAirport;
+    private String transitCity;
+    private String transitAirport;
     @Indexed private Set<String> dayOfWeek;
     private double basePrice;
 }

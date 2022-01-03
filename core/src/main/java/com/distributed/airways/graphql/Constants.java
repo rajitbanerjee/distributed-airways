@@ -11,7 +11,7 @@ public class Constants {
             "query Flights ($date: String, $sourceCity: String, $destinationCity: String) { flights"
                     + " (date: $date, sourceCity: $sourceCity, destinationCity: $destinationCity) { id"
                     + " airline flightNumber time sourceCity destinationCity sourceAirport"
-                    + " destinationAirport dayOfWeek price category }}";
+                    + " destinationAirport transitCity transitAirport dayOfWeek price category }}";
 
     public static final String BROKER_PORT = "8080";
     public static final List<String> AIRLINE_HOSTS =
