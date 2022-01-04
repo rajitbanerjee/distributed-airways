@@ -1,6 +1,7 @@
 # Distributed Airways
 
 - For the full project report, see [./report.pdf](./report.pdf).
+- A demonstration video is [available here](https://www.youtube.com/watch?v=bwyK4mzQokU).
 
 ## Requirements
 
@@ -104,17 +105,12 @@ kubectl delete pv -all
 
 #### FAQ
 
-**Where are the images coming from?**
-
-Images are uploaded to [Docker Hub](https://hub.docker.com/u/distributedairways) and pulled when the cluster is created.
-
-After making changes to any module, the `docker.sh` script (found at the root of individual modules) can be executed to build and push the image to Docker Hub.
-
-Docker Buildx is used to create multi-platform images (to support both amd64 and arm64 processors). Setup instructions can be found in the [official documentation](https://docs.docker.com/buildx/working-with-buildx/).
-
-**How should the frontend/broker/individual airline services be scaled?**
-
-In the `k8s/` directory, the appropriate `.yaml` file's `replicas` attribute can be modified.
+- **Where are the images coming from?**
+  - Images are uploaded to [Docker Hub](https://hub.docker.com/u/distributedairways) and pulled when the cluster is created.
+  - After making changes to any module, the `docker.sh` script (found at the root of individual modules) can be executed to build and push the image to Docker Hub.
+  - Docker Buildx is used to create multi-platform images (to support both amd64 and arm64 processors). Setup instructions can be found in the [official documentation](https://docs.docker.com/buildx/working-with-buildx/).
+- **How should the frontend/broker/individual airline services be scaled?**
+  - In the `k8s/` directory, the appropriate `.yaml` file's `replicas` attribute can be modified.
 
 ### User Interface
 
