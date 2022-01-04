@@ -14,17 +14,16 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class GraphQLProvider {
-
-    @Autowired BrokerService service;
-
-    private GraphQL graphQL;
     private static final String SCHEMA = "graphql/schema.graphqls";
+    private final BrokerService service;
+    private GraphQL graphQL;
 
     @PostConstruct
     public void init() throws IOException {
@@ -32,14 +31,14 @@ public class GraphQLProvider {
         this.graphQL = GraphQL.newGraphQL(graphQLSchema).build();
     }
 
-    private GraphQLSchema buildSchema(String sdl) throws IOException {
+    private GraphQLSchema buildSchema(String sdl) {
         TypeDefinitionRegistry typeRegistry = new SchemaParser().parse(sdl);
         RuntimeWiring runtimeWiring = buildWiring();
         SchemaGenerator schemaGenerator = new SchemaGenerator();
         return schemaGenerator.makeExecutableSchema(typeRegistry, runtimeWiring);
     }
 
-    private RuntimeWiring buildWiring() throws IOException {
+    private RuntimeWiring buildWiring() {
         Map<String, DataFetcher> dataFetchersMap = new HashMap<>();
         dataFetchersMap.put("sourceCities", service.getSourceCitiesDataFetcher());
         dataFetchersMap.put("destinationCities", service.getDestinationCitiesDataFetcher());

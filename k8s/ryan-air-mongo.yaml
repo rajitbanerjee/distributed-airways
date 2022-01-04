@@ -1,0 +1,77 @@
+# Persistent Shared Volume Claim
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ryan-air-mongo
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100M
+---
+# Persistent Shared Volume
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ryan-air-mongo
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 100M
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/ryan_air_mongo_data"
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: ryan-air-mongo
+  labels:
+    app: mongo
+    airline: ryan-air
+spec:
+  ports:
+    - port: 27017
+      targetPort: 27017
+  selector:
+    app: mongo
+    airline: ryan-air
+---
+# Deployment pod
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ryan-air-mongo
+  labels:
+    app: mongo
+spec:
+  selector:
+    matchLabels:
+      app: mongo
+      airline: ryan-air
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mongo
+        airline: ryan-air
+    spec:
+      containers:
+        - name: master
+          image: mongo:latest
+          volumeMounts:
+            - mountPath: /data/db
+              name: ryan-air-mongo
+          resources:
+            requests:
+              memory: 100M
+          ports:
+            - containerPort: 27017
+      volumes:
+        - name: ryan-air-mongo
+          persistentVolumeClaim:
+            claimName: ryan-air-mongo

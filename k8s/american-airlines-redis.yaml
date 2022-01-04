@@ -1,0 +1,77 @@
+# Persistent Shared Volume Claim
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: american-airlines-redis
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100M
+---
+# Persistent Shared Volume
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: american-airlines-redis
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 100M
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: american-airlines-redis
+  labels:
+    app: redis
+    airline: american-airlines
+spec:
+  ports:
+    - port: 6379
+      targetPort: 6379
+  selector:
+    app: redis
+    airline: american-airlines
+---
+# Deployment pod
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: american-airlines-redis
+  labels:
+    app: redis
+spec:
+  selector:
+    matchLabels:
+      app: redis
+      airline: american-airlines
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+        airline: american-airlines
+    spec:
+      containers:
+        - name: master
+          image: redis:6.2-alpine
+          volumeMounts:
+            - mountPath: /data
+              name: american-airlines-redis
+          resources:
+            requests:
+              memory: 100M
+          ports:
+            - containerPort: 6379
+      volumes:
+        - name: american-airlines-redis
+          persistentVolumeClaim:
+            claimName: american-airlines-redis

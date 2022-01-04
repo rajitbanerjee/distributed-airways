@@ -66,14 +66,14 @@ public class FlightService {
     @Transactional(readOnly = true)
     public List<String> getSourceCities() {
         return flightRepository.findAll().stream()
-                .map(flight -> flight.getSourceCity())
+                .map(Flight::getSourceCity)
                 .collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
     public List<String> getDestinationCities() {
         return flightRepository.findAll().stream()
-                .map(flight -> flight.getDestinationCity())
+                .map(Flight::getDestinationCity)
                 .collect(Collectors.toList());
     }
 
