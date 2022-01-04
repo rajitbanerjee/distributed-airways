@@ -8,6 +8,8 @@
     "destinationCity": "Kolkata",
     "sourceAirport": "DUB",
     "destinationAirport": "CCU",
+    "transitCity": "Dubai",
+    "transitAirport": "DXB",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -29,6 +31,8 @@
     "destinationCity": "Dublin",
     "sourceAirport": "CCU",
     "destinationAirport": "DUB",
+    "transitCity": "Dubai",
+    "transitAirport": "DXB",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -50,6 +54,8 @@
     "destinationCity": "Melbourne",
     "sourceAirport": "DUB",
     "destinationAirport": "MEL",
+    "transitCity": "Dubai",
+    "transitAirport": "DXB",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -71,6 +77,8 @@
     "destinationCity": "Dublin",
     "sourceAirport": "MEL",
     "destinationAirport": "DUB",
+    "transitCity": "Dubai",
+    "transitAirport": "DXB",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -92,6 +100,8 @@
     "destinationCity": "Dubai",
     "sourceAirport": "DUB",
     "destinationAirport": "DXB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -113,6 +123,8 @@
     "destinationCity": "Dublin",
     "sourceAirport": "DXB",
     "destinationAirport": "DUB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -134,6 +146,8 @@
     "destinationCity": "New York",
     "sourceAirport": "DXB",
     "destinationAirport": "JFK",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -155,6 +169,8 @@
     "destinationCity": "Dubai",
     "sourceAirport": "JFK",
     "destinationAirport": "DXB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -176,6 +192,8 @@
     "destinationCity": "San Francisco",
     "sourceAirport": "DXB",
     "destinationAirport": "SFO",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -197,6 +215,8 @@
     "destinationCity": "Dubai",
     "sourceAirport": "SFO",
     "destinationAirport": "DXB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -218,6 +238,8 @@
     "destinationCity": "Hong Kong",
     "sourceAirport": "DXB",
     "destinationAirport": "HKG",
+    "transitCity": "Bangkok",
+    "transitAirport": "BKK",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -239,6 +261,8 @@
     "destinationCity": "Dubai",
     "sourceAirport": "HKG",
     "destinationAirport": "DXB",
+    "transitCity": "Bangkok",
+    "transitAirport": "BKK",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -260,6 +284,8 @@
     "destinationCity": "Singapore",
     "sourceAirport": "DXB",
     "destinationAirport": "SIN",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -281,6 +307,8 @@
     "destinationCity": "Dubai",
     "sourceAirport": "SIN",
     "destinationAirport": "DXB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",

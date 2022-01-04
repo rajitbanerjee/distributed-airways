@@ -13,6 +13,8 @@ Content-Type: application/graphql
     destinationCity
     sourceAirport
     destinationAirport
+    transitCity;
+    transitAirport;
     dayOfWeek
     price
     category

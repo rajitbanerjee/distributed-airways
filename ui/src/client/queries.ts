@@ -23,6 +23,8 @@ export const flightsByDateSourceCityAndDestinationCity = gql`
       destinationCity
       sourceAirport
       destinationAirport
+      transitCity
+      transitAirport
       dayOfWeek
       price
       category

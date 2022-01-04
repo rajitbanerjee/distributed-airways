@@ -40,6 +40,12 @@ public class CathayFlight {
     @Column(name = "destinationairport")
     private String destinationAirport;
 
+    @Column(name = "transitcity")
+    private String transitCity;
+
+    @Column(name = "transitairport")
+    private String transitAirport;
+
     @Type(type = "list-array")
     @Column(name = "dayofweek", columnDefinition = "text[]")
     private List<String> dayOfWeek;

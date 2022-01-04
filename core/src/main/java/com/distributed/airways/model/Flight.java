@@ -17,6 +17,8 @@ public class Flight {
     private String destinationCity;
     private String sourceAirport;
     private String destinationAirport;
+    private String transitCity;
+    private String transitAirport;
     private List<String> dayOfWeek;
     private List<Double> price;
     private List<String> category;

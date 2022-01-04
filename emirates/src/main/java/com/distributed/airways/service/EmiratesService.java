@@ -44,16 +44,9 @@ public class EmiratesService {
             String dayOfWeek = DateFormatter.dateToDayOfWeek(date);
 
             flights = flightRepository.findFlights(dayOfWeek, sourceCity, destinationCity);
-            updateTicketPrices();
+            applyTicketClassPremiums();
             return flights;
         };
-    }
-
-    private void updateTicketPrices() {
-        applyTicketClassPremiums();
-        // TODO? using utils from core here, or just post-processing in broker?
-        // applyWeekendPremiums();
-        // applySeasonalPremiums();
     }
 
     private void applyTicketClassPremiums() {

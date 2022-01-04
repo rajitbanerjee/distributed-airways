@@ -14,6 +14,10 @@ const Card = ({ flight }: Props): JSX.Element => {
   const destination = `${flight.destinationCity} (${flight.destinationAirport})`;
   const departureTime = flight.time[0];
   const arrivalTime = flight.time[flight.time.length - 1];
+  const isDirect = flight.transitCity.length === 0;
+  const transit = `${flight.transitCity} (${flight.transitAirport})`;
+  const transitArrivalTime = flight.time[1];
+  const transitDepartureTime = flight.time[2];
 
   return (
     <Box
@@ -41,6 +45,23 @@ const Card = ({ flight }: Props): JSX.Element => {
           <Text fontSize="x-large">{departureTime}</Text>
           <Text>{source}</Text>
         </VStack>
+
+        {isDirect ? (
+          <VStack>
+            <Text color="green" fontSize="xs">
+              Direct
+            </Text>
+          </VStack>
+        ) : (
+          <VStack spacing={-1}>
+            <Text color="red" fontSize="xs">
+              Transit
+            </Text>
+            <Text fontSize="xs">{transit}</Text>
+            <Text fontSize="xs">A: {transitArrivalTime}</Text>
+            <Text fontSize="xs">D: {transitDepartureTime}</Text>
+          </VStack>
+        )}
 
         <VStack>
           <Text fontSize="x-large">{arrivalTime}</Text>

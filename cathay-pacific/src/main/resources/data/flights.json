@@ -8,6 +8,8 @@
     "destinationCity": "London",
     "sourceAirport": "HKG",
     "destinationAirport": "LHR",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Sunday"],
     "price": [800.0],
     "category": ["Economy", "Business", "First"]
@@ -21,6 +23,8 @@
     "destinationCity": "Hong Kong",
     "sourceAirport": "LHR",
     "destinationAirport": "HKG",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Monday"],
     "price": [760.0],
     "category": ["Economy", "Business", "First"]
@@ -34,6 +38,8 @@
     "destinationCity": "San Francisco",
     "sourceAirport": "HKG",
     "destinationAirport": "SFO",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": ["Monday", "Thursday", "Friday", "Saturday", "Sunday"],
     "price": [910.0],
     "category": ["Economy", "Business", "First"]
@@ -47,6 +53,8 @@
     "destinationCity": "Hong Kong",
     "sourceAirport": "SFO",
     "destinationAirport": "HKG",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     "price": [900.0],
     "category": ["Economy", "Business", "First"]
@@ -60,6 +68,8 @@
     "destinationCity": "New York",
     "sourceAirport": "HKG",
     "destinationAirport": "JFK",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -81,6 +91,8 @@
     "destinationCity": "Hong Kong",
     "sourceAirport": "JFK",
     "destinationAirport": "HKG",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -102,6 +114,8 @@
     "destinationCity": "Dubai",
     "sourceAirport": "HKG",
     "destinationAirport": "DXB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -123,6 +137,8 @@
     "destinationCity": "Hong Kong",
     "sourceAirport": "DXB",
     "destinationAirport": "HKG",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -144,6 +160,8 @@
     "destinationCity": "Tokyo",
     "sourceAirport": "HKG",
     "destinationAirport": "NRT",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": ["Thursday", "Friday", "Saturday", "Sunday"],
     "price": [500.0],
     "category": ["Economy", "Business", "First"]
@@ -157,6 +175,8 @@
     "destinationCity": "Hong Kong",
     "sourceAirport": "NRT",
     "destinationAirport": "HKG",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": ["Thursday", "Friday", "Saturday", "Sunday"],
     "price": [400.0],
     "category": ["Economy", "Business", "First"]
@@ -170,6 +190,8 @@
     "destinationCity": "Vancouver",
     "sourceAirport": "JFK",
     "destinationAirport": "YVR",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": ["Monday", "Saturday", "Sunday"],
     "price": [320.0],
     "category": ["Economy", "Business", "First"]
@@ -183,6 +205,8 @@
     "destinationCity": "New York",
     "sourceAirport": "YVR",
     "destinationAirport": "JFK",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": ["Monday", "Saturday", "Sunday"],
     "price": [200.0],
     "category": ["Economy", "Business", "First"]
@@ -196,6 +220,8 @@
     "destinationCity": "Dubai",
     "sourceAirport": "SIN",
     "destinationAirport": "DXB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -217,6 +243,8 @@
     "destinationCity": "Singapore",
     "sourceAirport": "DXB",
     "destinationAirport": "SIN",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",

@@ -114,6 +114,13 @@ Docker Buildx is used to create multi-platform images (to support both amd64 and
 
 In `k8s/` directory, the appropriate `.yaml` file's `replicas` attribute can be modified.
 
+### User Interface
+
+![](./images/sc-01.png)
+![](./images/sc-02.png)
+![](./images/sc-03.png)
+![](./images/sc-04.png)
+
 ### Team
 
 - [Ahmed Jouda](https://github.com/AhmedJouda2000)

@@ -13,6 +13,8 @@ export interface Flight {
   destinationCity: string;
   sourceAirport: string;
   destinationAirport: string;
+  transitCity: string;
+  transitAirport: string;
   dayOfWeek: string[];
   price: number[];
   category: string[];

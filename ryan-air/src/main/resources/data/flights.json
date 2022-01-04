@@ -8,6 +8,8 @@
     "destinationCity": "London",
     "sourceAirport": "DUB",
     "destinationAirport": "STN",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -29,6 +31,8 @@
     "destinationCity": "Dublin",
     "sourceAirport": "STN",
     "destinationAirport": "DUB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -50,6 +54,8 @@
     "destinationCity": "London",
     "sourceAirport": "DUB",
     "destinationAirport": "LGW",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -71,6 +77,8 @@
     "destinationCity": "Dublin",
     "sourceAirport": "LGW",
     "destinationAirport": "DUB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -92,6 +100,8 @@
     "destinationCity": "Dubai",
     "sourceAirport": "DUB",
     "destinationAirport": "DXB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": ["Monday", "Friday"],
     "price": [150.0],
     "category": ["Value", "Regular", "Plus"]
@@ -105,6 +115,8 @@
     "destinationCity": "Dublin",
     "sourceAirport": "DXB",
     "destinationAirport": "DUB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": ["Tuesday", "Saturday"],
     "price": [160.0],
     "category": ["Value", "Regular", "Plus"]
@@ -118,6 +130,8 @@
     "destinationCity": "New York",
     "sourceAirport": "DUB",
     "destinationAirport": "SWF",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": ["Wednesday", "Friday", "Sunday"],
     "price": [99.0],
     "category": ["Value", "Regular", "Plus"]
@@ -131,6 +145,8 @@
     "destinationCity": "Dublin",
     "sourceAirport": "SWF",
     "destinationAirport": "DUB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": ["Wednesday", "Friday", "Sunday"],
     "price": [89.0],
     "category": ["Value", "Regular", "Plus"]
@@ -144,6 +160,8 @@
     "destinationCity": "New York",
     "sourceAirport": "DUB",
     "destinationAirport": "JFK",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": ["Wednesday", "Friday", "Sunday"],
     "price": [199.0],
     "category": ["Value", "Regular", "Plus"]
@@ -157,6 +175,8 @@
     "destinationCity": "Dublin",
     "sourceAirport": "JFK",
     "destinationAirport": "DUB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": ["Wednesday", "Friday", "Sunday"],
     "price": [165.0],
     "category": ["Value", "Regular", "Plus"]
@@ -170,6 +190,8 @@
     "destinationCity": "Milan",
     "sourceAirport": "DUB",
     "destinationAirport": "BGY",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -191,6 +213,8 @@
     "destinationCity": "Dublin",
     "sourceAirport": "BGY",
     "destinationAirport": "DUB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -212,6 +236,8 @@
     "destinationCity": "Barcelona",
     "sourceAirport": "DUB",
     "destinationAirport": "BCN",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",
@@ -233,6 +259,8 @@
     "destinationCity": "Dublin",
     "sourceAirport": "BCN",
     "destinationAirport": "DUB",
+    "transitCity": "",
+    "transitAirport": "",
     "dayOfWeek": [
       "Monday",
       "Tuesday",

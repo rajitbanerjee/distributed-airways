@@ -50,16 +50,9 @@ public class RyanAirService {
             String dayOfWeek = DateFormatter.dateToDayOfWeek(date);
 
             flights = flightRepository.findFlights(dayOfWeek, sourceCity, destinationCity);
-            updateTicketPrices();
+            applyBaggageClassPremiums();
             return flights;
         };
-    }
-
-    private void updateTicketPrices() {
-        applyBaggageClassPremiums();
-        // TODO? using utils from core here, or just post-processing in broker?
-        // applyWeekendPremiums();
-        // applySeasonalPremiums();
     }
 
     private void applyBaggageClassPremiums() {
